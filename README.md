@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **313 advanced agent skills** for [Cursor](https://cursor.com), bundled into **22 master "hub" skills** — one per domain.
+A curated, **organized** collection of **318 advanced agent skills** for [Cursor](https://cursor.com), bundled into **23 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 313 entries, you get **22 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 318 entries, you get **23 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,9 +10,9 @@ Instead of flooding your skills list with 313 entries, you get **22 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 313 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 318 skills that's noisy. This repo merges them so:
 
-- ✅ Only **22 masters** appear in your Skills list.
+- ✅ Only **23 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
 - ✅ Nothing is lost — all original scripts, data, and references are kept beside each skill.
 - ✅ You invoke one master (e.g. `ui-master`) and the agent picks the right sub-skill.
@@ -52,7 +52,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 ---
 
-## The 22 masters
+## The 23 masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
@@ -76,10 +76,11 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `payments-master` | 6 | **Payment pages + every gateway/wallet worldwide & in Africa: Stripe/Adyen/PayPal, Paystack/Flutterwave/Fawry/Paymob/M-Pesa/Ozow, mobile money (MTN/Airtel/Orange/Vodafone Cash/Wave), orchestration, PCI/fraud** |
 | `communications-master` | 5 | **Real-time chat, WhatsApp Business, full helpdesk/support (tickets/SLA/KB/CSAT), omnichannel inbox + AI chatbot, advanced email (deliverability/inbound/2-way sync)** |
 | `fullstack-stacks-master` | 4 | **Compatible full-stack stacks: TypeScript unified (Node+Next+React+TS), Python (FastAPI/Django), Go/Rust/Laravel/Java/.NET + OpenAPI contracts** |
+| `composer-elite-master` | 5 | **Cursor Composer max power, Claude ultimate, Xcode full native, multi-agent orchestration (code+design), ship workflows** |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 313 bundled skills across 22 masters.**
+**Total: 318 bundled skills across 23 masters.**
 
 ---
 
