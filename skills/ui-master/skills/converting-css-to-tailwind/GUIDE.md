@@ -1,12 +1,13 @@
 ---
 name: converting-css-to-tailwind
-description: Convert plain CSS stylesheets to Tailwind CSS utility classes. Handles selectors, media queries, pseudo-classes, custom properties, and animations.
+description: Convert plain CSS stylesheets to Tailwind CSS v4 utility classes. Handles selectors, media queries, pseudo-classes, custom properties, and animations. For v4 setup and @theme config use tailwind-v4-latest.
 user-invocable: true
 ---
 
 # Converting CSS to Tailwind
 
-Migrate plain CSS files to Tailwind utility classes applied directly in markup.
+Migrate plain CSS files to **Tailwind v4** utility classes applied directly in markup.
+Use **`tailwind-v4-latest`** for project setup, `@theme`, and v3→v4 renames (`shadow-xs`, `ring-3`, `bg-linear-to-r`).
 
 ## Workflow
 
@@ -87,7 +88,7 @@ transition: all 0.2s ease-in-out;
 @keyframes spin { ... }
 animation: spin 1s linear infinite;
 ```
-→ `animate-spin` (built-in) or define in `tailwind.config`
+→ `animate-spin` (built-in) or define keyframes in CSS / `@theme` (v4)
 
 ### Custom Properties / Arbitrary Values
 
@@ -102,8 +103,8 @@ Some things can't be expressed purely as utilities:
 
 - **Complex selectors** (`.parent > .child + .sibling`) — restructure the markup or use `@apply` as a last resort
 - **`@font-face`** — keep in a global CSS file or `globals.css`
-- **Complex `@keyframes`** — define in `tailwind.config.ts` under `theme.extend.keyframes`
-- **CSS variables** — migrate to Tailwind theme values in `tailwind.config.ts`
+- **Complex `@keyframes`** — define in CSS with `@theme` / `@keyframes` (v4)
+- **CSS variables** — migrate to `@theme { --color-* … }` in global CSS (v4)
 
 ## Rules
 

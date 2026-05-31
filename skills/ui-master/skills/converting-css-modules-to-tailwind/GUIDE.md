@@ -1,6 +1,6 @@
 ---
 name: converting-css-modules-to-tailwind
-description: Migrate CSS Modules (.module.css/.module.scss) to Tailwind utility classes. Handles styles object removal, className interpolation, composition, and global overrides.
+description: Migrate CSS Modules (.module.css/.module.scss) to Tailwind v4 utility classes. Handles styles object removal, className interpolation, composition, and global overrides. Use tailwind-v4-latest for @theme setup.
 user-invocable: true
 ---
 
@@ -80,7 +80,7 @@ className={variantClasses[variant]}
 
 **SCSS features (nesting, variables, mixins):**
 - Nested selectors → flatten into utility classes on each element
-- SCSS `$variables` → map to `tailwind.config.ts` theme values
+- SCSS `$variables` → map to `@theme { --color-* … }` in global CSS (Tailwind v4)
 - Mixins → replace with utility composition or extract components
 
 ### 4. Clean Up
