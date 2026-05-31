@@ -1,6 +1,6 @@
 ---
 name: ui-master
-description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), Figma-grade design systems, ultra-HD/8K-crisp rendering, award-winning effects, charts & dashboards, responsive, or accessibility work. Bundles 23 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
+description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), Figma-grade design systems, ultra-HD/8K-crisp rendering, award-winning effects, advanced forms (registration/login/checkout/wizards), charts & dashboards, responsive, or accessibility work. Bundles 26 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
 ---
 
 # UI, frontend & design — Master Hub
@@ -9,7 +9,7 @@ Use for any UI, frontend, styling, design-system, responsive, or accessibility w
 
 ## How to use this hub
 
-This single skill bundles **all 23 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 26 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -28,6 +28,12 @@ This single skill bundles **all 23 ui skills**. Each bundled skill's full instru
   → `skills/ultra-hd-visual-rendering/GUIDE.md`
 - **award-winning-ui-effects** ⭐ — Awwwards/FWA-tier, never-seen-before UI: WebGL/shaders (Three.js/R3F/OGL), mesh/aurora gradients, glassmorphism, 3D, scroll storytelling (GSAP/Lenis), kinetic type, micro-interactions, View Transitions — all at 60fps with reduced-motion/a11y fallbacks.  
   → `skills/award-winning-ui-effects/GUIDE.md`
+- **advanced-forms-architecture** ⭐ — Foundation for all advanced forms: Zod schema (client+server), React Hook Form, validation timing, security (CSRF, rate-limit, honeypot), WCAG a11y, error UX — read first for any form work.  
+  → `skills/advanced-forms-architecture/GUIDE.md`
+- **form-patterns-by-use-case** ⭐ — Production patterns per form type: registration, login, password reset, onboarding, profile/settings, contact, checkout, survey, application/KYC, booking, admin CRUD — fields, validation, security, and flows.  
+  → `skills/form-patterns-by-use-case/GUIDE.md`
+- **multi-step-dynamic-forms** — Multi-step wizards, conditional show/hide fields, field arrays, cascading selects, async validation, file uploads, branching surveys, and save/resume drafts.  
+  → `skills/multi-step-dynamic-forms/GUIDE.md`
 - **accessibility-auditing** — Use Cursor's browser aria snapshots to audit a page for accessibility issues — missing labels, broken tab order, contrast, and ARIA misuse.  
   → `skills/accessibility-auditing/GUIDE.md`
 - **anthropic-algorithmic-art** — Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields,...  

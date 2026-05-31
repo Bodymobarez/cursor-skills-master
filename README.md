@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **306 advanced agent skills** for [Cursor](https://cursor.com), bundled into **21 master "hub" skills** — one per domain.
+A curated, **organized** collection of **309 advanced agent skills** for [Cursor](https://cursor.com), bundled into **21 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 306 entries, you get **21 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 309 entries, you get **21 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 306 entries, you get **21 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 306 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 309 skills that's noisy. This repo merges them so:
 
 - ✅ Only **21 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -56,7 +56,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
-| `ui-master` | 23 | UI, frontend, design systems, **brand identity**, **charts & dashboards**, **Figma-grade design systems**, **ultra-HD/8K-crisp rendering**, **award-winning effects (WebGL/3D/motion)**, CSS→Tailwind, responsive/a11y |
+| `ui-master` | 26 | UI, frontend, design systems, **advanced forms** (registration/login/checkout/wizards/dynamic), **brand identity**, **charts & dashboards**, **Figma-grade design systems**, **ultra-HD/8K rendering**, **award-winning effects**, CSS→Tailwind, responsive/a11y |
 | `planning-master` | 11 | PRDs, issues, architecture (ADRs), prototyping, plan grilling |
 | `testing-master` | 9 | Unit, integration, E2E (Playwright), TDD, smoke testing |
 | `code-quality-master` | 16 | Code review, security audits, find-bugs, perf, simplification |
@@ -78,7 +78,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 306 bundled skills across 21 masters.**
+**Total: 309 bundled skills across 21 masters.**
 
 ---
 
