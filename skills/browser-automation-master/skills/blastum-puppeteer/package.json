@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer-skill-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:skill": "node scripts/run-tests.mjs"
+  },
+  "dependencies": {
+    "@ghostery/adblocker-puppeteer": "latest",
+    "puppeteer": "latest",
+    "puppeteer-extra": "latest",
+    "puppeteer-extra-plugin-stealth": "latest",
+    "robots-parser": "latest"
+  }
+}

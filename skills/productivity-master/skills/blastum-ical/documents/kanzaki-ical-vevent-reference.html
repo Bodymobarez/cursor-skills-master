@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html itemscope="" itemid="" itemtype="http://schema.org/WebPage" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width" />
+ <title itemprop="name">iCalendar spec: 4.6.1 Event Component</title>
+ <link itemprop="creator" href="http://purl.org/net/who/kanzaki#masahide" />
+ <link rel="stylesheet" href="/parts/kan01.css" />
+</head>
+<body>
+<header class="banner" id="banner" role="banner">
+ <div id="stinfo-navi">
+  <a href="#s0" id="bnsl"><img src="/parts/univ.gif" alt="Skip navi. Also, " title="Experiment to skip a common header" /></a> 
+  <img src="/parts/help.gif" alt="information finding " /><a href="/info/navi" title="Navigation help document: " accesskey="h">Help</a>
+  <img src="/parts/tri-d.png" alt=" Page status: " /><a href="#stinfo" id="snavi" title="Editorial status of this page, copyrights, etc.">Status info</a>
+ <!--eoi(stinfo-navi)--></div>
+
+ <a href="/"><img src="/parts/logo.png" id="twk-logo" alt="The Web KANZAKI " title="Go to the top page of this site" /></a>
+ <span class="tagline">music &amp; knowledge sharing </span>
+</header>
+
+
+<div id="s0" class="main" role="main">
+<h1>4.6.1 Event Component</h1>
+
+<p><a href="#basic">Basic Definition</a> | <a href="#def">Format Definition</a> |  <a href="#descr">Description</a>| <a href="#example">Example</a></p>
+
+<section>
+<h2 id="basic">Basic Definition</h2>
+<dl>
+<dt>Component Name</dt><dd>VEVENT</dd>
+<dt>Purpose</dt><dd>Provide a grouping of component properties that describe an
+event.</dd>
+</dl>
+
+<!--eos(2)--></section>
+
+
+<section>
+<h2 id="def">Format Definition</h2>
+<pre>A "VEVENT" calendar component is defined by the
+following notation:
+
+  eventc     = "BEGIN" ":" "VEVENT" CRLF
+               eventprop *alarmc
+               "END" ":" "VEVENT" CRLF
+
+  eventprop  = *(
+
+             ; the following are optional,
+             ; but MUST NOT occur more than once
+
+             class / created / description / dtstart / geo /
+             last-mod / location / organizer / priority /
+             dtstamp / seq / status / summary / transp /
+             uid / url / recurid /
+
+             ; either 'dtend' or 'duration' may appear in
+             ; a 'eventprop', but 'dtend' and 'duration'
+             ; MUST NOT occur in the same 'eventprop'
+
+             dtend / duration /
+
+             ; the following are optional,
+             ; and MAY occur more than once
+
+             attach / attendee / categories / comment /
+             contact / exdate / exrule / rstatus / related /
+             resources / rdate / rrule / x-prop
+
+             )</pre>
+
+<!--eos(2)--></section>
+
+
+<section>
+<h2 id="descr">Description</h2>
+<p>A "<dfn>VEVENT</dfn>" calendar component is a grouping of component
+properties, and possibly including "<a href="valarm.html">VALARM</a>" calendar components, that
+represents a scheduled amount of time on a calendar. For example, it
+can be an activity; such as a one-hour long, department meeting from
+8:00 AM to 9:00 AM, tomorrow. Generally, an event will take up time
+on an individual calendar. Hence, the event will appear as an opaque
+interval in a search for busy time. Alternately, the event can have
+its Time Transparency set to "TRANSPARENT" in order to prevent
+blocking of the event in searches for busy time.</p>
+
+<p>The "<dfn>VEVENT</dfn>" is also the calendar component used to specify an
+anniversary or daily reminder within a calendar. These events have a
+DATE value type for the "<a href="dtstart.html">DTSTART</a>" property instead of the default
+data type of DATE-TIME. If such a "<dfn>VEVENT</dfn>" has a "<a href="dtend.html">DTEND</a>" property, it
+MUST be specified as a DATE value also. The anniversary type of
+"<dfn>VEVENT</dfn>" can span more than one date (i.e, "<a href="dtend.html">DTEND</a>" property value is
+set to a calendar date after the "<a href="dtstart.html">DTSTART</a>" property value).</p>
+
+<p>The "<a href="dtstart.html">DTSTART</a>" property for a "<dfn>VEVENT</dfn>" specifies the inclusive start
+of the event. For recurring events, it also specifies the very first
+instance in the recurrence set. The "<a href="dtend.html">DTEND</a>" property for a "<dfn>VEVENT</dfn>"
+calendar component specifies the non-inclusive end of the event. For
+cases where a "<dfn>VEVENT</dfn>" calendar component specifies a "<a href="dtstart.html">DTSTART</a>"
+property with a DATE data type but no "<a href="dtend.html">DTEND</a>" property, the events
+non-inclusive end is the end of the calendar date specified by the
+"<a href="dtstart.html">DTSTART</a>" property. For cases where a "<dfn>VEVENT</dfn>" calendar component
+specifies a "<a href="dtstart.html">DTSTART</a>" property with a DATE-TIME data type but no
+"<a href="dtend.html">DTEND</a>" property, the event ends on the same calendar date and time
+of day specified by the "<a href="dtstart.html">DTSTART</a>" property.
+The "<dfn>VEVENT</dfn>" calendar component cannot be nested within another
+calendar component. However, "<dfn>VEVENT</dfn>" calendar components can be
+related to each other or to a "<a href="vtodo.html">VTODO</a>" or to a "<a href="vjournal.html">VJOURNAL</a>" calendar
+component with the "<a href="relatedTo.html">RELATED-TO</a>" property.</p>
+
+<!--eos(2)--></section>
+
+
+<section>
+<h2 id="example">Example</h2>
+<pre>The following is an example of the "VEVENT" calendar
+component used to represent a meeting that will also be opaque to
+searches for busy time:
+
+  BEGIN:VEVENT
+  UID:19970901T130000Z-123401@host.com
+  DTSTAMP:19970901T1300Z
+  DTSTART:19970903T163000Z
+  DTEND:19970903T190000Z
+  SUMMARY:Annual Employee Review
+  CLASS:PRIVATE
+  CATEGORIES:BUSINESS,HUMAN RESOURCES
+  END:VEVENT
+
+The following is an example of the "VEVENT" calendar component used
+to represent a reminder that will not be opaque, but rather
+transparent, to searches for busy time:
+
+  BEGIN:VEVENT
+  UID:19970901T130000Z-123402@host.com
+  DTSTAMP:19970901T1300Z
+  DTSTART:19970401T163000Z
+  DTEND:19970402T010000Z
+  SUMMARY:Laurel is in sensitivity awareness class.
+  CLASS:PUBLIC
+  CATEGORIES:BUSINESS,HUMAN RESOURCES
+  TRANSP:TRANSPARENT
+  END:VEVENT
+
+The following is an example of the "VEVENT" calendar component used
+to represent an anniversary that will occur annually. Since it takes
+up no time, it will not appear as opaque in a search for busy time;
+no matter what the value of the "TRANSP" property indicates:
+
+  BEGIN:VEVENT
+  UID:19970901T130000Z-123403@host.com
+  DTSTAMP:19970901T1300Z
+  DTSTART:19971102
+  SUMMARY:Our Blissful Anniversary
+  CLASS:CONFIDENTIAL
+  CATEGORIES:ANNIVERSARY,PERSONAL,SPECIAL OCCASION
+  RRULE:FREQ=YEARLY
+  END:VEVENT
+</pre>
+
+<p class="navi"><a href="./">iCalendar specification excerpts TOC</a></p>
+
+
+<!--eos(2)--></section>
+<!--eoc(main)--></div>
+<footer role="contentinfo" id="cif0" lang="">
+This is a part of <a itemprop="http://purl.org/dc/terms/source" href="http://www.ietf.org/rfc/rfc2445.txt">RFC 2445 iCalendar specification</a> (1998-11),
+<address class="vcard" itemscope="" itemtype="http://schema.org/Person" itemid="http://purl.org/net/who/kanzaki#masahide">
+converted to XHTML by <span itemprop="name"><a href="/info/who" class="fn url" rel="author">KANZAKI, Masahide</a></span> (see <a itemprop="http://xmlns.com/foaf/0.1/isPrimaryTopicOf" href="/info/webwho.rdf" title="personal profile in RDF">FOAF</a> or <a href="/" itemprop="url" title="The Web KANZAKI home">home</a>, <a title="disclaimer, rights and contact info" href="/info/disclaimer">rights</a>).
+</address>
+<span id="stinfo">Status: first converted <time itemprop="dateCreated">2003-10-25</time>, modified <time itemprop="dateModified">2003-10-27</time>. <a href="/info/navi#status-exp" title="This system is still experimental">Exp</a>.</span>
+</footer>
+</body>
+</html>

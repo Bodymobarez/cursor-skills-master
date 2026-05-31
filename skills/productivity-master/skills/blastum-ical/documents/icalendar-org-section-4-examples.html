@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="This site is devoted to promoting the iCalendar standard, which includes specifications, resources, a validation tool and PHP library. iCalendar is an open stan">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>iCalendar.org - 4.  iCalendar Object Examples</title>
+	<link href="/templates/cleanboot/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
+<link href="/media/vendor/bootstrap/css/bootstrap.min.css?5.3.8" rel="stylesheet">
+	<link href="/media/vendor/joomla-custom-elements/css/joomla-alert.min.css?0.4.1" rel="stylesheet">
+	<link href="/plugins/content/zapshare/zapshare.css" rel="stylesheet">
+	<link href="/plugins/system/jce/css/content.css?badb4208be409b1335b815dde676300e" rel="stylesheet">
+	<link href="/media/system/css/joomla-fontawesome.css" rel="stylesheet">
+	<link href="/templates/cleanboot/fontawesome/css/fontawesome.css" rel="stylesheet">
+	<link href="/templates/cleanboot/fontawesome/css/brands.css" rel="stylesheet">
+	<link href="/templates/cleanboot/fontawesome/css/solid.css" rel="stylesheet">
+	<link href="/templates/cleanboot/css/template.css" rel="stylesheet">
+	<link href="/templates/cleanboot/css/blue.css" rel="stylesheet">
+	<link href="/templates/cleanboot/css/custom.css" rel="stylesheet">
+<script type="application/json" class="joomla-script-options new">{"joomla.jtext":{"ERROR":"Error","MESSAGE":"Message","NOTICE":"Notice","WARNING":"Warning","JCLOSE":"Close","JOK":"OK","JOPEN":"Open"},"system.paths":{"root":"","rootFull":"https:\/\/icalendar.org\/","base":"","baseFull":"https:\/\/icalendar.org\/"},"csrf.token":"4888f0370ef69c34e7e6336ed3c8f888"}</script>
+	<script src="/media/system/js/core.min.js?a3d8f8"></script>
+	<script src="/media/vendor/bootstrap/js/alert.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/button.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/carousel.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/collapse.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/dropdown.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/modal.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/offcanvas.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/popover.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/scrollspy.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/tab.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/toast.min.js?5.3.8" type="module"></script>
+	<script src="/media/system/js/messages.min.js?9a4811" type="module"></script>
+	<script src="/templates/cleanboot/js/template.js"></script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://icalendar.org/#/schema/BreadcrumbList/17","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://icalendar.org/Home.html.html","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https://icalendar.org/RFC-Specifications/","name":"RFC Specifications"}},{"@type":"ListItem","position":3,"item":{"@id":"https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/","name":"iCalendar (RFC 5545)"}},{"@type":"ListItem","position":4,"item":{"name":"4.  iCalendar Object Examples"}}]}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://icalendar.org/#/schema/Organization/base","name":"iCalendar.org","url":"https://icalendar.org/"},{"@type":"WebSite","@id":"https://icalendar.org/#/schema/WebSite/base","url":"https://icalendar.org/","name":"iCalendar.org","publisher":{"@id":"https://icalendar.org/#/schema/Organization/base"}},{"@type":"WebPage","@id":"https://icalendar.org/#/schema/WebPage/base","url":"https://icalendar.org/iCalendar-RFC-5545/4-icalendar-object-examples.html","name":"iCalendar.org - 4.  iCalendar Object Examples","description":"This site is devoted to promoting the iCalendar standard, which includes specifications, resources, a validation tool and PHP library. iCalendar is an open stan","isPartOf":{"@id":"https://icalendar.org/#/schema/WebSite/base"},"about":{"@id":"https://icalendar.org/#/schema/Organization/base"},"inLanguage":"en-GB","breadcrumb":{"@id":"https://icalendar.org/#/schema/BreadcrumbList/17"}},{"@type":"Article","@id":"https://icalendar.org/#/schema/com_content/article/540","name":"4.  iCalendar Object Examples","headline":"4.  iCalendar Object Examples","inLanguage":"en-GB","isPartOf":{"@id":"https://icalendar.org/#/schema/WebPage/base"}}]}</script>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="https://icalendar.org/images/clipart/icalendar600.png"/>
+	<meta property="og:url" content="https://icalendar.org/"/>
+	<meta property="og:title" content="iCalendar.org"/>
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+
+</head>
+
+<body id="body">
+	
+		<div class="wrapper-toolbar" style="min-height:40px;">
+<nav id="toolbar-nav" class="navbar navbar-expand-lg bg-body-tertiary wrapper-menu fixed-top">
+	<div class="container">
+		<div class="navbar-inner">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toolbar" aria-controls="toolbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-menu" style="color:#fff"></span>
+			</button>
+			<div class="d-lg-none float-end" style="font-size:125%;">iCalendar.org</div>
+			<div id="toolbar" class="collapse navbar-collapse">
+				<ul class="navbar-nav nav ">
+<li class="item-101 current active"><a href="/Home.html.html" ><span>Home</span></a></li><li class="item-105 dropdown deeper parent"><a class=" dropdown-toggle" data-bs-toggle="dropdown" role="button"href="#" ><span>Specifications<b class="caret"></b></span></a><ul class="nav-child unstyled small dropdown-menu"><li class="item-102"><a href="/RFC-Specifications/iCalendar-RFC-5545/" ><span>iCalendar (RFC 5545)</span></a></li><li class="item-309"><a href="/RFC-Specifications/iCalendar-RFC-7986/" ><span>New Properties for iCalendar (RFC 7986)</span></a></li><li class="item-106"><a href="/RFC-Specifications/iCalendar-Venue-Draft/" ><span>iCalendar Venue (Draft)</span></a></li><li class="item-129"><a href="/RFC-Specifications/CalDAV-Access-RFC-4791/" ><span>CalDAV Access (RFC 4791)</span></a></li><li class="item-131"><a href="/RFC-Specifications/CalDAV-Scheduling-RFC-6638/" ><span>CalDAV Scheduling (RFC 6638)</span></a></li></ul></li><li class="item-150"><a href="/validator.html.html" ><span>Validator</span></a></li><li class="item-284"><a href="/php-library.html.html" ><span>PHP Library</span></a></li><li class="item-389"><a href="/rrule-tool.html.html" ><span>RRULE Tool</span></a></li><li class="item-127"><a href="/resources.html.html" ><span>Resources</span></a></li><li class="item-302"><a href="/News/" ><span>News</span></a></li><li class="item-130"><a href="/contact-us.html.html" ><span>Contact Us</span></a></li></ul>
+
+<div id="mod-custom95" class="mod-custom custom">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63391079-1', 'auto');
+  ga('send', 'pageview');
+
+</script></div>
+
+			</div>
+		</div>
+	</div>
+	</nav>
+	</div>
+	
+	<!-- header -->
+	<div id='header'>
+	<div class='container'>
+	<div class='row first'>
+	<div id='logo' class='span5 d-none d-lg-block'>
+	<a href="/">
+	<img src="https://icalendar.org/images/clipart/icalendar600.png" alt="iCalendar.org" />	</a>
+	</div>
+	<div id='top' class='span7'>
+		
+	</div>
+	</div>
+	</div>
+	</div>
+
+	
+	<!-- main container -->
+	<div id='main-container' class='container'>
+					
+	<!-- mid container - includes main content area and sidebars -->
+	<div class='row'>
+
+	
+	<!-- main content area -->
+	<div class='span12'>
+	<nav class="mod-breadcrumbs__wrapper" aria-label="Breadcrumbs">
+    <ol class="mod-breadcrumbs breadcrumb px-3 py-2">
+                    <li class="mod-breadcrumbs__here float-start">
+                You are here: &#160;
+            </li>
+        
+        <li class="mod-breadcrumbs__item breadcrumb-item"><a href="/Home.html.html" class="pathway"><span>Home</span></a></li><li class="mod-breadcrumbs__item breadcrumb-item"><a href="/RFC-Specifications/" class="pathway"><span>RFC Specifications</span></a></li><li class="mod-breadcrumbs__item breadcrumb-item"><a href="/RFC-Specifications/iCalendar-RFC-5545/" class="pathway"><span>iCalendar (RFC 5545)</span></a></li><li class="mod-breadcrumbs__item breadcrumb-item active"><span>4.  iCalendar Object Examples</span></li>    </ol>
+    </nav>
+
+	
+<div id="mod-custom101" class="mod-custom custom">
+    <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- iCalendar.org - Responsive -->
+<div id="ad-check"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4335830585954144" data-ad-slot="6435533116" data-ad-format="auto"></ins></div>
+<div id="ad-status" style="height:0px;">&nbsp;</div>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+  
+setTimeout(function(){
+  rnum = Math.random().toString(36).slice(-10);
+  if(document.getElementById("ad-check").offsetHeight === 0){
+    console.log("ads blocked");
+    document.getElementById("ad-status").innerHTML = '<img src="/images/other/adblock.gif?' + rnum + '"/>';
+    document.getElementById("ad-check").innerHTML = 
+      '<div class="card bg-light d-block mb-3 p-3" style="text-align: center;"><img src="/images/clipart/coffee-cup.png" alt="coffee cup" width="50" height="81" style="float:right; padding-left:6px;padding-top:6px;" /><p style="text-align: left;">Your browser is blocking our ads, which we use to offset the costs of maintaining and continuing development of this site. Would you instead consider donating a virtual cup of coffee to the developer? Donate $4.50 (USA) using the button below to say thank you.</p><img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0"/><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin:0px;" ><input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="CGTPEU9DT8UD6" /> <input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" type="image" /></form></div>';
+  }
+  else{
+    console.log("ads running");
+    document.getElementById("ad-status").innerHTML = '<img src="/images/other/adrun.gif?' + rnum + '"/>';
+  }
+}, 500);
+</script></div>
+
+<div id="mod-custom105" class="mod-custom custom">
+    <div class="well">
+<p>Try out our new <a href="/rrule-tool.html.html">RRULE tool</a> for creating RRULE compatible strings.</p>
+</div></div>
+
+	<div id="system-message-container" aria-live="polite"></div>
+
+	<div class="com-content-article item-page">
+    <meta itemprop="inLanguage" content="en-GB">
+    
+    
+        <div class="page-header">
+        <h1>
+            4.  iCalendar Object Examples        </h1>
+                            </div>
+        
+        
+    
+    
+        <div class='zapshare' style='vertical-align:top;'><span class="socialbutton">
+<div id="fbshareBtn-540" class="zapshare_fb_button"><span style="font-size:110%;font-weight:bold;">f</span> Share</div>
+<script>
+jQuery("#fbshareBtn-540").on("click",function(){
+    window.open("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ficalendar.org%2FiCalendar-RFC-5545%2F4-icalendar-object-examples.html", "pop", "width=600, height=400, scrollbars=no");
+    return false;
+});
+</script></span>
+<span class="socialbutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://platform.twitter.com/widgets/tweet_button.html?text=4.  iCalendar Object Examples&amp;url=https%3A%2F%2Ficalendar.org%2FiCalendar-RFC-5545%2F4-icalendar-object-examples.html" style="padding:0px;margin:0px;width:74px;height:20px;"></iframe></span>
+<span class="socialbutton"><div class="zapshare_url_button"><a onclick='jQuery("#zapshare_url_field_540").toggle();'>&nbsp;URL</a></div></span>
+<div class="zapshare_url_field" id="zapshare_url_field_540" style="display:none;"><input class="hasTooltip" readonly="true" type="text" data-toggle="hasTooltip" title="Copy and paste the URL to share this article with others." onClick="this.select();" value="https://icalendar.org/iCalendar-RFC-5545/4-icalendar-object-examples.html"></div></div>
+                                                <div class="com-content-article__body">
+        
+
+<p>The following examples are provided as an informational source of
+illustrative iCalendar objects consistent with this content type.</p>
+<p>The following example specifies a three-day conference that begins at
+2:30 P.M. UTC, September 18, 1996 and ends at 10:00 P.M. UTC,
+September 20, 1996.</p>
+<p><pre> BEGIN:VCALENDAR
+ PRODID:-//xyz Corp//NONSGML PDA Calendar Version 1.0//EN
+ VERSION:2.0
+ BEGIN:VEVENT
+ DTSTAMP:19960704T120000Z
+ UID:uid1@example.com
+ ORGANIZER:mailto:jsmith@example.com
+ DTSTART:19960918T143000Z
+ DTEND:19960920T220000Z
+ STATUS:CONFIRMED
+ CATEGORIES:CONFERENCE
+ SUMMARY:Networld+Interop Conference
+ DESCRIPTION:Networld+Interop Conference
+   and Exhibit\nAtlanta World Congress Center\n
+  Atlanta\, Georgia
+ END:VEVENT
+ END:VCALENDAR</pre></p>
+<p>The following example specifies a group-scheduled meeting that begins
+at 8:30 AM EST on March 12, 1998 and ends at 9:30 AM EST on March 12,
+1998.  The "Organizer" has scheduled the meeting with one or more
+calendar users in a group.  A time zone specification for Eastern
+United States has been specified.</p>
+<p><pre> BEGIN:VCALENDAR
+ PRODID:-//RDU Software//NONSGML HandCal//EN
+ VERSION:2.0
+ BEGIN:VTIMEZONE
+ TZID:America/New_York
+ BEGIN:STANDARD
+ DTSTART:19981025T020000
+ TZOFFSETFROM:-0400
+ TZOFFSETTO:-0500
+ TZNAME:EST
+ END:STANDARD
+ BEGIN:DAYLIGHT
+ DTSTART:19990404T020000
+ TZOFFSETFROM:-0500
+ TZOFFSETTO:-0400
+ TZNAME:EDT
+ END:DAYLIGHT
+ END:VTIMEZONE
+ BEGIN:VEVENT
+ DTSTAMP:19980309T231000Z
+ UID:guid-1.example.com
+ ORGANIZER:mailto:mrbig@example.com
+ ATTENDEE;RSVP=TRUE;ROLE=REQ-PARTICIPANT;CUTYPE=GROUP:
+  mailto:employee-A@example.com
+ DESCRIPTION:Project XYZ Review Meeting
+ CATEGORIES:MEETING
+ CLASS:PUBLIC
+ CREATED:19980309T130000Z
+ SUMMARY:XYZ Project Review
+ DTSTART;TZID=America/New_York:19980312T083000
+ DTEND;TZID=America/New_York:19980312T093000
+ LOCATION:1CP Conference Room 4350
+ END:VEVENT
+ END:VCALENDAR</pre></p>
+<p>The following is an example of an iCalendar object passed in a MIME
+message with a single body part consisting of a "text/calendar"
+Content Type.</p>
+<p><pre> TO:jsmith@example.com
+ FROM:jdoe@example.com
+ MIME-VERSION:1.0
+ MESSAGE-ID:<id3@example.com>
+ CONTENT-TYPE:text/calendar; method="xyz"; component=<a href="/iCalendar-RFC-5545/3-6-1-event-component.html.html">"VEVENT"</a></pre></p>
+<p><pre> BEGIN:VCALENDAR
+ METHOD:xyz
+ VERSION:2.0
+ PRODID:-//ABC Corporation//NONSGML My Product//EN
+ BEGIN:VEVENT
+ DTSTAMP:19970324T120000Z
+ SEQUENCE:0
+ UID:uid3@example.com
+ ORGANIZER:mailto:jdoe@example.com
+ ATTENDEE;RSVP=TRUE:mailto:jsmith@example.com
+ DTSTART:19970324T123000Z
+ DTEND:19970324T210000Z
+ CATEGORIES:MEETING,PROJECT
+ CLASS:PUBLIC
+ SUMMARY:Calendaring Interoperability Planning Meeting
+ DESCRIPTION:Discuss how we can test c&s interoperability\n
+  using iCalendar and other IETF standards.
+ LOCATION:LDB Lobby
+ ATTACH;FMTTYPE=application/postscript:ftp://example.com/pub/
+  conf/bkgrnd.ps
+ END:VEVENT
+ END:VCALENDAR</pre></p>
+<p>The following is an example of a to-do due on April 15, 1998.  An
+audio alarm has been specified to remind the calendar user at noon,
+the day before the to-do is expected to be completed and repeat
+hourly, four additional times.  The to-do definition has been
+modified twice since it was initially created.</p>
+<p><pre> BEGIN:VCALENDAR
+ VERSION:2.0
+ PRODID:-//ABC Corporation//NONSGML My Product//EN
+ BEGIN:VTODO
+ DTSTAMP:19980130T134500Z
+ SEQUENCE:2
+ UID:uid4@example.com
+ ORGANIZER:mailto:unclesam@example.com
+ ATTENDEE;PARTSTAT=ACCEPTED:mailto:jqpublic@example.com
+ DUE:19980415T000000
+ STATUS:NEEDS-ACTION
+ SUMMARY:Submit Income Taxes
+ BEGIN:VALARM
+ ACTION:AUDIO
+ TRIGGER:19980403T120000Z
+ ATTACH;FMTTYPE=audio/basic:http://example.com/pub/audio-
+  files/ssbanner.aud
+ REPEAT:4
+ DURATION:PT1H
+ END:VALARM
+ END:VTODO
+ END:VCALENDAR</pre></p>
+<p>The following is an example of a journal entry:</p>
+<p><pre> BEGIN:VCALENDAR
+ VERSION:2.0
+ PRODID:-//ABC Corporation//NONSGML My Product//EN
+ BEGIN:VJOURNAL
+ DTSTAMP:19970324T120000Z
+ UID:uid5@example.com
+ ORGANIZER:mailto:jsmith@example.com
+ STATUS:DRAFT
+ CLASS:PUBLIC
+ CATEGORIES:Project Report,XYZ,Weekly Meeting
+ DESCRIPTION:Project xyz Review Meeting Minutes\n
+  Agenda\n1. Review of project version 1.0 requirements.\n2.
+   Definition
+  of project processes.\n3. Review of project schedule.\n
+  Participants: John Smith\, Jane Doe\, Jim Dandy\n-It was
+   decided that the requirements need to be signed off by
+   product marketing.\n-Project processes were accepted.\n
+  -Project schedule needs to account for scheduled holidays
+   and employee vacation time. Check with HR for specific
+   dates.\n-New schedule will be distributed by Friday.\n-
+  Next weeks meeting is cancelled. No meeting until 3/23.
+ END:VJOURNAL
+ END:VCALENDAR</pre></p>
+<p>The following is an example of published busy time information.  The
+iCalendar object might be placed in the network resource
+http://www.example.com/calendar/busytime/jsmith.ifb.</p>
+<p><pre> BEGIN:VCALENDAR
+ VERSION:2.0
+ PRODID:-//RDU Software//NONSGML HandCal//EN
+ BEGIN:VFREEBUSY
+ ORGANIZER:mailto:jsmith@example.com
+ DTSTART:19980313T141711Z
+ DTEND:19980410T141711Z
+ FREEBUSY:19980314T233000Z/19980315T003000Z
+ FREEBUSY:19980316T153000Z/19980316T163000Z
+ FREEBUSY:19980318T030000Z/19980318T040000Z
+ URL:http://www.example.com/calendar/busytime/jsmith.ifb
+ END:VFREEBUSY
+ END:VCALENDAR</pre></p>
+     </div>
+
+        
+                                        </div>
+
+	
+<div id="mod-custom88" class="mod-custom custom">
+    <p><em>This document was automatically converted to XHTML using an RFC to HTML converter with the original text document at the Internet Engineering Task Force web site at <a href="http://www.ietf.org" target="_blank" rel="noopener">ietf.org</a> .&nbsp; The original text document should be referred to if there are any errors or discrepancies found in this document.</em></p></div>
+
+<div id="mod-custom99" class="mod-custom custom">
+    <div class="card bg-light mb-3 p-3">
+<h3 class="card-title">Need to test your iCalendar feeds?</h3>
+<p class="card-text">The <a href="/validator.html">iCalendar Validator</a> provides developers and testers a method to validate their iCalendar feeds, which can take data from either a URL, file or text snippet and compare it against the <a href="/RFC-Specifications/iCalendar-RFC-5545/">RFC 5545 specification</a>.&nbsp; We believe we have one of the best iCalendar validation tools available on the internet. More information about the validator can be <a href="/More-Info/about-the-icalendar-validator.html.html">found here</a>.</p>
+</div></div>
+
+	</div>
+
+		</div>
+
+				
+	</div>
+
+	<!-- bottom -->
+	<div id="bottom">
+				<!-- footer -->
+	<div class="wrapper-footer clearfix" style="height: 32px; background-color:#fff;">
+	<footer id="footer" class="footer sticky" style="bottom:0px;position:absolute;z-index:1000;">
+		<div class="container">
+		<span class="navbar-text">
+			
+<div id="mod-custom93" class="mod-custom custom">
+    <p><span style="font-size: 9pt;">This site is maintained by&nbsp;<a href="http://zcontent.net" target="_blank" rel="noopener">Z Content</a>, a developer of PHP iCalendar tools for the Joomla Content Management System. It is hoped this site will help foster the use of iCalendar and open standards.</span></p></div>
+
+<div id="mod-custom126" class="mod-custom custom">
+    <p>Read our <a href="/privacy-policy.html.html">privacy policy here</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div>
+
+		</span>
+		</div>
+	</div>
+	</div>
+		</div>
+</body>
+
+</html>

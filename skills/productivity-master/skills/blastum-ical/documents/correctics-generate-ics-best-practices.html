@@ -1,0 +1,856 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Generate Correct ICS Files (Best Practices + Templates)</title><meta name="description" content="How to generate valid iCalendar (.ics) files that import cleanly in Google Calendar, Outlook, Apple Calendar, and Teams. Templates, RRULE, and validation tips."><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><link rel="canonical" href="https://correctics.com/help/generate-correct-ics-files/"><link rel="stylesheet" href="/styles.css"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><meta property="og:site_name" content="CorrectICS"><meta property="og:type" content="article"><meta property="og:title" content="Generate Correct ICS Files (Best Practices + Templates)"><meta property="og:description" content="How to generate valid iCalendar (.ics) files that import cleanly in Google Calendar, Outlook, Apple Calendar, and Teams. Templates, RRULE, and validation tips."><meta property="og:url" content="https://correctics.com/help/generate-correct-ics-files/"><meta property="og:image" content="/assets/og-image.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Generate Correct ICS Files (Best Practices + Templates)"><meta name="twitter:description" content="How to generate valid iCalendar (.ics) files that import cleanly in Google Calendar, Outlook, Apple Calendar, and Teams. Templates, RRULE, and validation tips."><meta name="twitter:image" content="/assets/og-image.png"><script async src="https://www.googletagmanager.com/gtag/js?id=G-GPDN4BTZHZ"></script><script>(function(){const GA_ID = "G-GPDN4BTZHZ";
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);} 
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+          (function(){
+            try {
+              const key = 'correctics:utm_first';
+              const seen = localStorage.getItem(key);
+              const params = new URLSearchParams(location.search);
+              const utm = {
+                source: params.get('utm_source') || undefined,
+                medium: params.get('utm_medium') || undefined,
+                campaign: params.get('utm_campaign') || undefined,
+                term: params.get('utm_term') || undefined,
+                content: params.get('utm_content') || undefined,
+                referrer: document.referrer || undefined,
+                ts: new Date().toISOString(),
+                path: location.pathname
+              };
+              const hasUtm = Object.values(utm).some(v => typeof v === 'string' && v.trim().length > 0);
+              if (!seen && hasUtm) {
+                localStorage.setItem(key, JSON.stringify(utm));
+              }
+            } catch {}
+            const api = {
+              gaEvent(name, params){
+                try { gtag('event', String(name || ''), params || {}); } catch {}
+              },
+              getFirstUtm(){
+                try { return JSON.parse(localStorage.getItem('correctics:utm_first')||'null'); } catch { return null; }
+              },
+              setUser(id){
+                try { if (id) gtag('config', GA_ID, { user_id: String(id) }); } catch {}
+              }
+            };
+            try { window.CORRECTICS = Object.assign(window.CORRECTICS || {}, api); } catch {}
+	          })();
+	        })();</script><script>
+	      (function () {
+	        if (typeof window === 'undefined') return;
+
+	        const STORAGE_KEY = 'correctics:attribution_v1';
+	        const COOKIE_KEY = 'correctics_attribution_v1';
+	        const MAX_COOKIE_AGE = 60 * 60 * 24 * 365; // 1 year
+	        const MAX_HEADER_CHARS = 1400;
+	        const MAX_VALUE_CHARS = 160;
+
+	        const readCookie = (name) => {
+	          try {
+	            const parts = String(document.cookie || '')
+	              .split(';')
+	              .map((p) => p.trim())
+	              .filter(Boolean);
+	            for (const part of parts) {
+	              const eq = part.indexOf('=');
+	              if (eq <= 0) continue;
+	              if (part.slice(0, eq).trim() !== name) continue;
+	              return decodeURIComponent(part.slice(eq + 1));
+	            }
+	          } catch {}
+	          return '';
+	        };
+
+	        const writeCookie = (name, value) => {
+	          try {
+	            document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${MAX_COOKIE_AGE}; SameSite=Lax`;
+	          } catch {}
+	        };
+
+	        const safeJsonParse = (raw) => {
+	          try {
+	            const text = typeof raw === 'string' ? raw : '';
+	            if (!text) return null;
+	            return JSON.parse(text);
+	          } catch {
+	            return null;
+	          }
+	        };
+
+	        const sanitize = (value, maxLen = MAX_VALUE_CHARS) => {
+	          if (typeof value !== 'string') return null;
+	          const trimmed = value.replace(/[\u0000-\u001f\u007f]+/g, '').trim();
+	          if (!trimmed) return null;
+	          if (trimmed.length <= maxLen) return trimmed;
+	          return trimmed.slice(0, Math.max(0, maxLen - 1)) + '…';
+	        };
+
+	        const safeUrl = (value) => {
+	          try {
+	            if (!value || typeof value !== 'string') return null;
+	            return new URL(value);
+	          } catch {
+	            return null;
+	          }
+	        };
+
+	        const extractSnapshot = () => {
+	          const loc = safeUrl(window.location?.href);
+	          const ref = safeUrl(document.referrer);
+
+	          const qp = loc ? loc.searchParams : new URLSearchParams();
+	          return {
+	            landing_path: sanitize(window.location?.pathname || '/', 200),
+	            referrer_host: sanitize(ref ? ref.hostname : null, 120),
+	            utm_source: sanitize(qp.get('utm_source')),
+	            utm_medium: sanitize(qp.get('utm_medium')),
+	            utm_campaign: sanitize(qp.get('utm_campaign')),
+	            utm_term: sanitize(qp.get('utm_term')),
+	            utm_content: sanitize(qp.get('utm_content')),
+	            gclid: sanitize(qp.get('gclid')),
+	            fbclid: sanitize(qp.get('fbclid')),
+	            msclkid: sanitize(qp.get('msclkid')),
+	          };
+	        };
+
+	        const readStore = () => {
+	          let raw = '';
+	          try { raw = localStorage.getItem(STORAGE_KEY) || ''; } catch {}
+	          if (!raw) raw = readCookie(COOKIE_KEY) || '';
+	          const parsed = safeJsonParse(raw);
+	          if (!parsed || typeof parsed !== 'object') return null;
+	          if (parsed.v !== 1) return null;
+	          return parsed;
+	        };
+
+	        const writeStore = (store) => {
+	          const json = JSON.stringify(store);
+	          try { localStorage.setItem(STORAGE_KEY, json); } catch {}
+	          // Cookie is best-effort; keep it small.
+	          try { if (json.length <= 3500) writeCookie(COOKIE_KEY, json); } catch {}
+	        };
+
+	        const mergeNonNull = (target, updates) => {
+	          const out = target && typeof target === 'object' ? { ...target } : {};
+	          for (const [k, v] of Object.entries(updates || {})) {
+	            if (v === null || v === undefined || v === '') continue;
+	            out[k] = v;
+	          }
+	          return out;
+	        };
+
+	        const persist = () => {
+	          const snapshot = extractSnapshot();
+	          const now = new Date().toISOString();
+	          const existing = readStore();
+	          const store = existing || { v: 1, first: null, last: null, updated_at: null };
+
+	          const firstExisting = store.first && typeof store.first === 'object' ? store.first : null;
+	          if (!firstExisting) {
+	            // If GA's legacy first-touch exists, merge it into our first-touch record.
+	            let legacy = null;
+	            try { legacy = safeJsonParse(localStorage.getItem('correctics:utm_first') || ''); } catch {}
+	            const legacyRef = legacy && typeof legacy.referrer === 'string' ? safeUrl(legacy.referrer) : null;
+	            store.first = mergeNonNull(snapshot, {
+	              utm_source: sanitize(legacy?.source),
+	              utm_medium: sanitize(legacy?.medium),
+	              utm_campaign: sanitize(legacy?.campaign),
+	              utm_term: sanitize(legacy?.term),
+	              utm_content: sanitize(legacy?.content),
+	              referrer_host: sanitize(legacyRef ? legacyRef.hostname : null, 120),
+	              landing_path: sanitize(legacy?.path, 200),
+	            });
+	          }
+
+	          const lastExisting = store.last && typeof store.last === 'object' ? store.last : {};
+	          // Always update last-touch landing + referrer; only overwrite UTMs/click IDs when present.
+	          const lastUpdate = {
+	            landing_path: snapshot.landing_path,
+	            referrer_host: snapshot.referrer_host,
+	            utm_source: snapshot.utm_source,
+	            utm_medium: snapshot.utm_medium,
+	            utm_campaign: snapshot.utm_campaign,
+	            utm_term: snapshot.utm_term,
+	            utm_content: snapshot.utm_content,
+	            gclid: snapshot.gclid,
+	            fbclid: snapshot.fbclid,
+	            msclkid: snapshot.msclkid,
+	          };
+	          store.last = {
+	            ...lastExisting,
+	            landing_path: lastUpdate.landing_path,
+	            referrer_host: lastUpdate.referrer_host,
+	            ...mergeNonNull({}, lastUpdate),
+	          };
+
+	          store.updated_at = now;
+	          writeStore(store);
+	          return store;
+	        };
+
+	        const flattenForTelemetry = (store) => {
+	          const first = store && store.first && typeof store.first === 'object' ? store.first : {};
+	          const last = store && store.last && typeof store.last === 'object' ? store.last : {};
+	          const out = { attribution_version: 1 };
+	          const keys = [
+	            'landing_path',
+	            'referrer_host',
+	            'utm_source',
+	            'utm_medium',
+	            'utm_campaign',
+	            'utm_term',
+	            'utm_content',
+	            'gclid',
+	            'fbclid',
+	            'msclkid',
+	          ];
+	          for (const k of keys) {
+	            if (last && k in last) out[k] = last[k] ?? null;
+	            if (first && k in first) out[`${k}_first`] = first[k] ?? null;
+	          }
+	          return out;
+	        };
+
+	        const getAttributionProps = () => {
+	          try {
+	            const store = persist();
+	            return flattenForTelemetry(store);
+	          } catch {
+	            return { attribution_version: 1 };
+	          }
+	        };
+
+	        const getAttributionHeader = () => {
+	          try {
+	            const props = getAttributionProps();
+	            const json = JSON.stringify(props);
+	            if (!json || json.length > MAX_HEADER_CHARS) return '';
+	            return json;
+	          } catch {
+	            return '';
+	          }
+	        };
+
+	        const withAttributionProps = (props) => {
+	          try {
+	            const base = getAttributionProps();
+	            const input = props && typeof props === 'object' ? props : {};
+	            let pageUrl = '';
+	            try {
+	              pageUrl = typeof window.location?.href === 'string' ? window.location.href.slice(0, 2048) : '';
+	            } catch {}
+	            const pageFields = !input.page_url && pageUrl ? { page_url: pageUrl } : {};
+	            return Object.assign({}, base, input, pageFields);
+	          } catch {
+	            return props;
+	          }
+	        };
+
+	        try {
+	          window.CORRECTICS = Object.assign(window.CORRECTICS || {}, {
+	            getAttributionProps,
+	            getAttributionHeader,
+	            withAttributionProps,
+	          });
+	        } catch {}
+
+	        // Persist immediately so later navigations (pricing/checkout) have first-touch available.
+	        try { persist(); } catch {}
+	      })();
+	    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://correctics.com/"},{"@type":"ListItem","position":2,"name":"ICS file errors","item":"https://correctics.com/ics-file-errors/"},{"@type":"ListItem","position":3,"name":"Help","item":"https://correctics.com/help/"},{"@type":"ListItem","position":4,"name":"Generate Correct ICS Files (Best Practices + Templates)","item":"https://correctics.com/help/generate-correct-ics-files/"}]}</script><script>(function(){const API_ORIGIN_CONST = "";
+
+    (function(){
+      if (typeof window !== 'undefined' && API_ORIGIN_CONST) {
+        try { window.__CORRECTICS_API_ORIGIN__ = API_ORIGIN_CONST; } catch {}
+      }
+    })();
+  })();</script><style>.help-article{margin-top:28px;display:grid;gap:16px;grid-template-columns:1fr}.help-article__card{padding:22px}.help-article__breadcrumbs{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}.help-article__breadcrumbs a{color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:8px}.help-article__breadcrumbs a:hover{background:var(--brand-ghost);color:var(--fg)}.help-article__sep{color:var(--border);padding:0 2px}.help-article__current{color:var(--fg);font-weight:600;padding:6px 0}.help-article__content{max-width:92ch;margin:0 auto;font-size:1.05rem;line-height:1.7;color:var(--fg)}.help-article__content .page-callout{background:var(--brand-ghost);border:1px solid var(--border);padding:10px 12px;border-radius:12px;margin:10px 0 18px}.help-article__content .page-callout strong{display:block;margin-bottom:4px;color:var(--fg);font-weight:650}.help-article__cta-soft{margin:10px 0 18px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--brand-ghost);font-size:1rem;line-height:1.5}.help-article__cta-soft strong{color:var(--fg);font-weight:650}.help-article__cta-soft a{font-weight:600;text-decoration:none}.help-article__cta-soft a:hover{text-decoration:underline}.help-article__content>:first-child{margin-top:0}.help-article__content h1{font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.2;margin:0 0 12px;letter-spacing:-.01em}.help-article__content h2{font-size:1.45rem;line-height:1.25;margin:28px 0 10px;letter-spacing:-.01em}.help-article__content h3{font-size:1.15rem;line-height:1.3;margin:22px 0 8px}.help-article__content p{margin:12px 0}.help-article__content ul,.help-article__content ol{margin:12px 0;padding-left:1.2em}.help-article__content li{margin:6px 0}.help-article__content hr{border:none;border-top:1px solid var(--border);margin:22px 0}.help-article__content blockquote{margin:16px 0;padding:10px 14px;background:var(--brand-ghost);border-left:4px solid var(--brand);border-radius:10px;color:var(--fg)}.help-article__content code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:.95em;background:#0000000a;padding:.15em .35em;border-radius:6px}.help-article__content pre{overflow:auto;padding:14px;border-radius:12px;border:1px solid var(--border);background:var(--brand-ghost);color:var(--fg);margin:14px 0;box-shadow:var(--shadow);white-space:pre-wrap;word-break:break-word}.help-article__content pre code{background:transparent;padding:0;border-radius:0;color:inherit;font-size:.95em}.help-article__content pre.astro-code,.help-article__content pre[class*=language-]{background:var(--brand-ghost)!important;color:var(--fg)!important;border:1px solid var(--border);border-radius:10px}.help-article__content pre.astro-code code{color:inherit}.help-article__content a{color:var(--brand);text-decoration:underline;text-underline-offset:2px}.help-article__content a:hover{text-decoration-thickness:2px}.help-article__content a.btn,.help-article__content a.btn:hover{text-decoration:none}.help-article__content a.btn:not(.secondary),.help-article__content a.btn:not(.secondary):hover{color:#fff}.help-article__content a.btn.secondary{color:var(--brand)}.help-article__cta{margin-top:28px;padding:16px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,var(--brand-ghost),rgba(255,255,255,0))}.help-article__cta h2{margin-top:0}.help-article__cta p{margin-bottom:0}.help-article__cta-actions{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}@media(max-width:640px){.help-article__card{padding:16px}.help-article__content{font-size:1.02rem}}
+:root{--bg:#f9fafb;--fg:#243131;--muted:#5b6a6a;--brand:#1a5f7a;--brand-ghost:#e6f1f5;--card:#ffffff;--border:#e5e7eb;--ok:#118a00;--fail:#c01c28;--shadow:0 4px 24px rgba(0,0,0,.06);--radius:12px}*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.container{max-width:980px;margin:0 auto;padding:24px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0 8px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}.brand-mark{display:block;height:64px;width:auto}.nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-left:auto}.nav a{color:var(--fg);text-decoration:none;padding:8px 10px;border-radius:8px}.nav a:hover{background:var(--brand-ghost)}.hero{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-top:16px;text-align:center}h1{margin:0 0 8px;font-size:clamp(1.8rem,3vw,2.4rem)}.sub{color:var(--muted);margin:0 0 20px}.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}button,.btn{appearance:none;border:none;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer;background:var(--brand);color:#fff;box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.1;text-decoration:none}.btn.cta-royal,button.cta-royal{background:#1d4ed8;color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover,button:hover{filter:brightness(.95)}.btn.secondary{background:transparent;color:var(--brand);border:1px solid var(--brand)}.section{margin-top:28px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.card h3{margin-top:0}.muted{color:var(--muted)}.footer{text-align:center;color:var(--muted);padding:28px 0 16px;font-size:.9rem}@media(max-width:640px){.container{padding:16px}.section{grid-template-columns:1fr}.nav{width:100%;margin-left:0;padding-top:6px}.nav a{padding:6px 10px}.card{padding:16px}.brand-mark{height:40px}}@media print{.btn{background:transparent!important;color:#111827!important;border:1px solid #111827!important;box-shadow:none!important}.btn.secondary{background:transparent!important;color:#111827!important;border:1px solid #111827!important}}
+</style></head> <body class> <div class="container"> <header class="header"> <a class="brand" href="/"> <img src="/assets/logo.svg" alt="CorrectICS" class="brand-mark"> </a> <nav class="nav"> <a href="/fix/"> Fix </a><a href="/help/" class="active"> Help </a><a href="/notes/"> Notes </a><a href="/api/"> API </a><a href="/status/"> Status </a><a href="/contact/"> Contact </a><a href="/pricing/"> Pricing </a><a href="/account/"> Account </a> </nav> </header>     <main class="help-article" data-astro-cid-mxhvemu3> <nav class="help-article__breadcrumbs" aria-label="Breadcrumb" data-astro-cid-mxhvemu3> <a href="/" data-astro-cid-mxhvemu3>Home</a> <span class="help-article__sep" aria-hidden="true" data-astro-cid-mxhvemu3>/</span> <a href="/ics-file-errors/" data-astro-cid-mxhvemu3>ICS file errors</a> <span class="help-article__sep" aria-hidden="true" data-astro-cid-mxhvemu3>/</span> <a href="/help/" data-astro-cid-mxhvemu3>Help</a> <span class="help-article__sep" aria-hidden="true" data-astro-cid-mxhvemu3>/</span> <span class="help-article__current" aria-current="page" data-astro-cid-mxhvemu3>Generate Correct ICS Files (Best Practices + Templates)</span> </nav> <article class="card help-article__card" aria-label="Generate Correct ICS Files (Best Practices + Templates)" data-astro-cid-mxhvemu3> <div class="help-article__content" data-astro-cid-mxhvemu3> <div class="help-article__cta-soft" data-help-cta-soft hidden data-astro-cid-mxhvemu3> <strong data-astro-cid-mxhvemu3>Short on time?</strong>  <a href="/fix/?utm_source=help&#38;utm_medium=cta&#38;utm_campaign=help_article&#38;utm_content=generate-correct-ics-files" data-astro-cid-mxhvemu3>Upload your .ics and try Autofix</a> <span class="muted" data-astro-cid-mxhvemu3> (Google Calendar, Outlook, Apple Calendar)</span> </div> <h1 id="how-to-generate-correct-ics-files-from-your-app-best-practices--templates">How to Generate Correct ICS Files From Your App (Best Practices + Templates)</h1>
+<h3 id="a-practical-guide-to-producing-ics-files-that-import-cleanly-in-google-outlook-apple-calendar-teams-and-ical"><em>A practical guide to producing ICS files that import cleanly in Google, Outlook, Apple Calendar, Teams, and iCal</em></h3>
+<p>If your app exports calendar events — for reminders, schedules, bookings, appointments, or syncing — you’ll eventually need to generate an <strong>ICS (iCalendar)</strong> file.</p>
+<p>ICS looks simple, but generating a <em>correct</em> ICS that imports consistently across:</p>
+<ul>
+<li>
+<p><strong>Google Calendar</strong></p>
+</li>
+<li>
+<p><strong>Outlook / Office 365 / Exchange</strong></p>
+</li>
+<li>
+<p><strong>Apple Calendar (iCal)</strong></p>
+</li>
+<li>
+<p><strong>Teams</strong></p>
+</li>
+<li>
+<p><strong>mobile calendar apps</strong></p>
+</li>
+<li>
+<p><strong>legacy vendors</strong></p>
+</li>
+</ul>
+<p>…is harder than it seems.</p>
+<p>This guide walks you through:</p>
+<ul>
+<li>
+<p>minimal working ICS templates</p>
+</li>
+<li>
+<p>common pitfalls when generating files</p>
+</li>
+<li>
+<p>exporting recurring events correctly</p>
+</li>
+<li>
+<p>time zone best practices</p>
+</li>
+<li>
+<p>how to test your ICS generator</p>
+</li>
+<li>
+<p>programmatically validating output</p>
+</li>
+</ul>
+<p>If you’re building ICS export functionality in a SaaS app, a booking engine, a scheduling tool, or a system that sends downloadable events, this is the definitive playbook.</p>
+<hr>
+<p>If you want a quick sanity check on your output, start with the free <strong><a href="/ics-validator/">ICS validator</a></strong>. To validate + download a repaired file, upload it to <strong><a href="/fix/?utm_source=help&#x26;utm_medium=cta&#x26;utm_campaign=help_article&#x26;utm_content=generate-correct-ics-files">/fix</a></strong>.</p>
+<hr>
+<h2 id="1-minimal-valid-ics-template-the-smallest-file-that-works-everywhere"><strong>1. Minimal Valid ICS Template (The Smallest File That Works Everywhere)</strong></h2>
+<p>Every ICS file requires the following structure:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BEGIN:VCALENDAR</span></span>
+<span class="line"><span>VERSION:2.0</span></span>
+<span class="line"><span>PRODID:-//YourApp//EN</span></span>
+<span class="line"><span>BEGIN:VEVENT</span></span>
+<span class="line"><span>UID:evt-123456-20250310T120000Z</span></span>
+<span class="line"><span>DTSTAMP:20250310T120000Z</span></span>
+<span class="line"><span>DTSTART:20250310T130000Z</span></span>
+<span class="line"><span>DTEND:20250310T140000Z</span></span>
+<span class="line"><span>SUMMARY:Example Event</span></span>
+<span class="line"><span>END:VEVENT</span></span>
+<span class="line"><span>END:VCALENDAR</span></span></code></pre>
+<h3 id="required-fields"><strong>Required fields:</strong></h3>
+<p>Component</p>
+<p>Required Fields</p>
+<p>VCALENDAR</p>
+<p><code>BEGIN:VCALENDAR</code>, <code>VERSION:2.0</code>, <code>PRODID</code>, <code>END:VCALENDAR</code></p>
+<p>VEVENT</p>
+<p><code>BEGIN:VEVENT</code>, <code>UID</code>, <code>DTSTART</code>, <code>DTEND</code>* or <code>DURATION</code>, <code>END:VEVENT</code></p>
+<p>(*DTEND is strongly recommended for broad compatibility.)</p>
+<h3 id="why-this-works-everywhere"><strong>Why this works everywhere</strong></h3>
+<ul>
+<li>
+<p>Correct structure</p>
+</li>
+<li>
+<p>UTC times (Zulu <code>Z</code>)</p>
+</li>
+<li>
+<p>Valid UID</p>
+</li>
+<li>
+<p>Minimal fields but complete</p>
+</li>
+</ul>
+<p>This is your baseline template before adding complexity like time zones, recurrence, or descriptions.</p>
+<hr>
+<h2 id="2-generating-uids-most-developers-get-this-wrong"><strong>2. Generating UIDs (Most Developers Get This Wrong)</strong></h2>
+<p>UIDs must be:</p>
+<ul>
+<li>
+<p>unique</p>
+</li>
+<li>
+<p>deterministic if possible</p>
+</li>
+<li>
+<p>stable across updates</p>
+</li>
+<li>
+<p>globally resolvable (not required to be an actual domain)</p>
+</li>
+</ul>
+<p>A good pattern:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UID:${eventId}-yourapp</span></span></code></pre>
+<p>Example:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UID:evt1234-myapp</span></span></code></pre>
+<p>Do <strong>not</strong> use random UUIDs on every export of the same event — otherwise sync tools treat each export as a <em>new</em> event.</p>
+<hr>
+<h2 id="3-timestamp-rules-dtstart-dtend-dtstamp"><strong>3. Timestamp Rules (DTSTART, DTEND, DTSTAMP)</strong></h2>
+<h3 id="dtstamp-when-the-event-was-created-always-utc"><strong>DTSTAMP:</strong> When the event was created (always UTC)</h3>
+<h3 id="dtstartdtend-when-it-happens-your-choice-of-utc-or-local-time"><strong>DTSTART/DTEND:</strong> When it happens (your choice of UTC or local time)</h3>
+<h3 id="best-practice">Best practice:</h3>
+<ul>
+<li>
+<p>Use UTC for single events</p>
+</li>
+<li>
+<p>Use local time (with TZID) for <em>recurring</em> events that must respect DST</p>
+</li>
+</ul>
+<p>Examples:</p>
+<p><strong>UTC Timestamp</strong></p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DTSTART:20250310T140000Z</span></span></code></pre>
+<p><strong>Local Time With TZID</strong></p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DTSTART;TZID=America/New_York:20250310T090000</span></span></code></pre>
+<p>Incorrect:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DTSTART;TZID=EST:20250310T090000</span></span></code></pre>
+<p>(EST is not a valid IANA TZID.)</p>
+<hr>
+<h2 id="4-generating-time-zones-correctly-tzid--vtimezone"><strong>4. Generating Time Zones Correctly (TZID + VTIMEZONE)</strong></h2>
+<p>If you export events with local times <strong>without a Z suffix</strong>, you MUST include <code>TZID</code>.</p>
+<h3 id="valid">Valid:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DTSTART;TZID=Europe/London:20250310T090000</span></span></code></pre>
+<h3 id="invalid">Invalid:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DTSTART;TZID=GMT:20250310T090000</span></span>
+<span class="line"><span>DTSTART;TZID=EST:20250310T090000</span></span></code></pre>
+<h3 id="do-you-need-a-vtimezone-block">Do you need a VTIMEZONE block?</h3>
+<p>It depends:</p>
+<p>Client / Platform</p>
+<p>Requires VTIMEZONE?</p>
+<p>Google Calendar</p>
+<p>❌ No</p>
+<p>Outlook Web</p>
+<p>❌ No</p>
+<p>Outlook Desktop</p>
+<p>✔️ Yes</p>
+<p>Exchange</p>
+<p>✔️ Yes</p>
+<p>Apple Calendar</p>
+<p>✔️ Usually</p>
+<h3 id="recommended-practice">Recommended practice</h3>
+<p>If supporting Outlook Desktop or Exchange → <strong>include VTIMEZONE</strong>.</p>
+<p>Example (New York):</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BEGIN:VTIMEZONE</span></span>
+<span class="line"><span>TZID:America/New_York</span></span>
+<span class="line"><span>BEGIN:STANDARD</span></span>
+<span class="line"><span>DTSTART:20241103T020000</span></span>
+<span class="line"><span>TZOFFSETFROM:-0400</span></span>
+<span class="line"><span>TZOFFSETTO:-0500</span></span>
+<span class="line"><span>RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU</span></span>
+<span class="line"><span>END:STANDARD</span></span>
+<span class="line"><span>BEGIN:DAYLIGHT</span></span>
+<span class="line"><span>DTSTART:20240310T020000</span></span>
+<span class="line"><span>TZOFFSETFROM:-0500</span></span>
+<span class="line"><span>TZOFFSETTO:-0400</span></span>
+<span class="line"><span>RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU</span></span>
+<span class="line"><span>END:DAYLIGHT</span></span>
+<span class="line"><span>END:VTIMEZONE</span></span></code></pre>
+<p>But: generating this manually is error-prone — most developers rely on an upstream library <em>or</em> normalize time zones via a tool like CorrectICS.</p>
+<hr>
+<h2 id="5-recurring-events-rrule-best-practices"><strong>5. Recurring Events: RRULE Best Practices</strong></h2>
+<p>This is the most common area where ICS generation breaks.</p>
+<h3 id="simple-weekly-recurrence">Simple weekly recurrence:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR</span></span></code></pre>
+<h3 id="monthly-event">Monthly event:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RRULE:FREQ=MONTHLY;BYMONTHDAY=15</span></span></code></pre>
+<h3 id="end-date">End date:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RRULE:FREQ=DAILY;UNTIL=20250331T000000Z</span></span></code></pre>
+<h3 id="common-mistakes">Common mistakes</h3>
+<p>❌ Missing FREQ:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RRULE:BYDAY=MO</span></span></code></pre>
+<p>❌ Invalid UNTIL date:</p>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RRULE:FREQ=DAILY;UNTIL=20250230T000000Z</span></span></code></pre>
+<p>❌ Infinite recurring events without COUNT or UNTIL<br>
+(some clients reject or slow down on import)</p>
+<hr>
+<h2 id="6-line-folding-the-least-known-ics-requirement"><strong>6. Line Folding (The Least Known ICS Requirement)</strong></h2>
+<p>ICS lines should be no longer than ~75 bytes and must be folded using:</p>
+<ul>
+<li>
+<p>CRLF (<code>\r\n</code>)</p>
+</li>
+<li>
+<p>continuation lines starting with a space</p>
+</li>
+</ul>
+<h3 id="broken">Broken:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DESCRIPTION:This is a very long description that some calendar apps will reject because it is too long to be on one line...</span></span></code></pre>
+<h3 id="correct">Correct:</h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DESCRIPTION:This is a very long description that some calendar apps will reject</span></span>
+<span class="line"><span>  because it is too long to be on one line...</span></span></code></pre>
+<p>Most developers forget this → causes Outlook import failures.</p>
+<p>CorrectICS handles folding automatically.</p>
+<hr>
+<h2 id="7-complete-ics-templates-you-can-copy"><strong>7. Complete ICS Templates You Can Copy</strong></h2>
+<h2 id="single-event-utc"><strong>Single Event (UTC)</strong></h2>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BEGIN:VCALENDAR</span></span>
+<span class="line"><span>VERSION:2.0</span></span>
+<span class="line"><span>PRODID:-//MyApp//EN</span></span>
+<span class="line"><span>BEGIN:VEVENT</span></span>
+<span class="line"><span>UID:event-1234-myapp</span></span>
+<span class="line"><span>DTSTAMP:20250201T120000Z</span></span>
+<span class="line"><span>DTSTART:20250310T140000Z</span></span>
+<span class="line"><span>DTEND:20250310T150000Z</span></span>
+<span class="line"><span>SUMMARY:Sample Event</span></span>
+<span class="line"><span>DESCRIPTION:This is an example event.</span></span>
+<span class="line"><span>END:VEVENT</span></span>
+<span class="line"><span>END:VCALENDAR</span></span></code></pre>
+<hr>
+<h2 id="local-time-with-time-zone"><strong>Local Time with Time Zone</strong></h2>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BEGIN:VCALENDAR</span></span>
+<span class="line"><span>VERSION:2.0</span></span>
+<span class="line"><span>PRODID:-//MyApp//EN</span></span>
+<span class="line"><span>BEGIN:VTIMEZONE</span></span>
+<span class="line"><span>TZID:America/New_York</span></span>
+<span class="line"><span>BEGIN:STANDARD</span></span>
+<span class="line"><span>DTSTART:20241103T020000</span></span>
+<span class="line"><span>TZOFFSETFROM:-0400</span></span>
+<span class="line"><span>TZOFFSETTO:-0500</span></span>
+<span class="line"><span>RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU</span></span>
+<span class="line"><span>END:STANDARD</span></span>
+<span class="line"><span>BEGIN:DAYLIGHT</span></span>
+<span class="line"><span>DTSTART:20240310T020000</span></span>
+<span class="line"><span>TZOFFSETFROM:-0500</span></span>
+<span class="line"><span>TZOFFSETTO:-0400</span></span>
+<span class="line"><span>RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU</span></span>
+<span class="line"><span>END:DAYLIGHT</span></span>
+<span class="line"><span>END:VTIMEZONE</span></span>
+<span class="line"><span>BEGIN:VEVENT</span></span>
+<span class="line"><span>UID:event-5678-myapp</span></span>
+<span class="line"><span>DTSTAMP:20250201T120000Z</span></span>
+<span class="line"><span>DTSTART;TZID=America/New_York:20250310T090000</span></span>
+<span class="line"><span>DTEND;TZID=America/New_York:20250310T100000</span></span>
+<span class="line"><span>SUMMARY:Local Time Event</span></span>
+<span class="line"><span>END:VEVENT</span></span>
+<span class="line"><span>END:VCALENDAR</span></span></code></pre>
+<hr>
+<h2 id="recurring-event-template"><strong>Recurring Event Template</strong></h2>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BEGIN:VCALENDAR</span></span>
+<span class="line"><span>VERSION:2.0</span></span>
+<span class="line"><span>PRODID:-//MyApp//EN</span></span>
+<span class="line"><span>BEGIN:VEVENT</span></span>
+<span class="line"><span>UID:class-4321-myapp</span></span>
+<span class="line"><span>DTSTAMP:20250201T120000Z</span></span>
+<span class="line"><span>DTSTART;TZID=America/Denver:20250310T090000</span></span>
+<span class="line"><span>DTEND;TZID=America/Denver:20250310T100000</span></span>
+<span class="line"><span>SUMMARY:Class</span></span>
+<span class="line"><span>RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR</span></span>
+<span class="line"><span>END:VEVENT</span></span>
+<span class="line"><span>END:VCALENDAR</span></span></code></pre>
+<hr>
+<h2 id="8-how-to-test-your-ics-generator"><strong>8. How to Test Your ICS Generator</strong></h2>
+<h3 id="1-import-into-multiple-clients">1. <strong>Import into multiple clients</strong></h3>
+<ul>
+<li>
+<p>Google Calendar</p>
+</li>
+<li>
+<p>Outlook Web</p>
+</li>
+<li>
+<p>Outlook Desktop</p>
+</li>
+<li>
+<p>Apple Calendar</p>
+</li>
+</ul>
+<h3 id="2-check-time-zone-conversions">2. <strong>Check time zone conversions</strong></h3>
+<p>Ensure no shifts occur around DST transitions.</p>
+<h3 id="3-validate-with-correctics">3. <strong>Validate with CorrectICS</strong></h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#6F42C1">curl</span><span style="color:#005CC5;--shiki-dark:#005CC5"> -X</span><span style="color:#032F62;--shiki-dark:#032F62"> POST</span><span style="color:#032F62;--shiki-dark:#032F62"> https://api.correctics.com/v1/validate</span><span style="color:#005CC5;--shiki-dark:#005CC5"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#005CC5">  -H</span><span style="color:#032F62;--shiki-dark:#032F62"> "Content-Type: text/calendar"</span><span style="color:#005CC5;--shiki-dark:#005CC5"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#005CC5">  --data-binary</span><span style="color:#032F62;--shiki-dark:#032F62"> @event.ics</span></span></code></pre>
+<h3 id="4-autofix-output-before-delivering-to-customers">4. <strong>Autofix output before delivering to customers</strong></h3>
+<pre class="astro-code astro-code-themes github-light github-light" style="background-color:#fff;--shiki-dark-bg:#fff;color:#24292e;--shiki-dark:#24292e; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#6F42C1">curl</span><span style="color:#005CC5;--shiki-dark:#005CC5"> -X</span><span style="color:#032F62;--shiki-dark:#032F62"> POST</span><span style="color:#032F62;--shiki-dark:#032F62"> https://api.correctics.com/v1/autofix</span><span style="color:#005CC5;--shiki-dark:#005CC5"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#005CC5">  -H</span><span style="color:#032F62;--shiki-dark:#032F62"> "Content-Type: text/calendar"</span><span style="color:#005CC5;--shiki-dark:#005CC5"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#005CC5">  --data-binary</span><span style="color:#032F62;--shiki-dark:#032F62"> @event.ics</span><span style="color:#005CC5;--shiki-dark:#005CC5"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#005CC5">  -o</span><span style="color:#032F62;--shiki-dark:#032F62"> clean.ics</span></span></code></pre>
+<h3 id="5-include-ics-validation-in-ci">5. <strong>Include ICS validation in CI</strong></h3>
+<p>(more examples in previous article)</p>
+<hr>
+<h2 id="9-common-mistakes-when-generating-ics-files"><strong>9. Common Mistakes When Generating ICS Files</strong></h2>
+<h3 id="-invalid-or-missing-tzid">❌ Invalid or missing TZID</h3>
+<h3 id="-missing-endvevent--endvcalendar">❌ Missing END:VEVENT / END:VCALENDAR</h3>
+<h3 id="-inline-long-lines-without-folding">❌ Inline long lines without folding</h3>
+<h3 id="-missing-uid">❌ Missing UID</h3>
+<h3 id="-malformed-rrule">❌ Malformed RRULE</h3>
+<h3 id="-using-windows-time-zones">❌ Using Windows time zones</h3>
+<h3 id="-exporting-invalid-dates-feb-30-etc">❌ Exporting invalid dates (Feb 30, etc.)</h3>
+<h3 id="-forgetting-crlf-line-endings">❌ Forgetting CRLF line endings</h3>
+<p>CorrectICS catches all of these.</p>
+<hr>
+<h2 id="10-recommended-best-practices-tldr"><strong>10. Recommended Best Practices (TL;DR)</strong></h2>
+<ul>
+<li>
+<p>Use <strong>UTC</strong> for simple events</p>
+</li>
+<li>
+<p>Use <strong>TZID</strong> + <strong>VTIMEZONE</strong> for local-time recurring events</p>
+</li>
+<li>
+<p>Always include <strong>UID</strong>, <strong>DTSTAMP</strong>, <strong>VERSION</strong>, <strong>PRODID</strong></p>
+</li>
+<li>
+<p>Fold lines properly</p>
+</li>
+<li>
+<p>Validate every ICS file before sending it</p>
+</li>
+<li>
+<p>Provide downloadable ICS + add-to-calendar links</p>
+</li>
+<li>
+<p>Use <strong>CorrectICS</strong> to clean, validate, and autofix your output</p>
+</li>
+</ul>
+<hr>
+<h2 id="11-conclusion-good-ics-generation--fewer-support-tickets"><strong>11. Conclusion: Good ICS Generation = Fewer Support Tickets</strong></h2>
+<p>Exporting correct ICS files is essential for:</p>
+<ul>
+<li>
+<p>SaaS scheduling tools</p>
+</li>
+<li>
+<p>booking applications</p>
+</li>
+<li>
+<p>edtech platforms</p>
+</li>
+<li>
+<p>CRM → calendar integrations</p>
+</li>
+<li>
+<p>workplace shift scheduling</p>
+</li>
+<li>
+<p>ICS feed publishers</p>
+</li>
+</ul>
+<p>A single faulty ICS export can result in:</p>
+<ul>
+<li>
+<p>wrong time zones</p>
+</li>
+<li>
+<p>missing events</p>
+</li>
+<li>
+<p>customer confusion</p>
+</li>
+<li>
+<p>silent failures in Google/Outlook</p>
+</li>
+</ul>
+<p>Using the best practices above — and validating your output automatically — ensures your exports “just work” everywhere.</p>
+<p>👉 <strong>Validate or autofix your ICS files instantly with CorrectICS</strong><br>
+👉 <strong>Use the API in your ICS generator for guaranteed correctness</strong></p> <section class="help-article__cta help-article__cta--bottom" data-help-cta-bottom aria-label="Try CorrectICS" data-astro-cid-mxhvemu3> <h2 data-astro-cid-mxhvemu3>Fix your .ics file in seconds</h2> <p class="muted" data-astro-cid-mxhvemu3>
+Upload an iCalendar file and get a clean, import-ready version for Google
+            Calendar, Outlook, Apple Calendar, and Teams.
+</p> <div class="help-article__cta-actions" data-astro-cid-mxhvemu3> <a class="btn" href="/fix/?utm_source=help&#38;utm_medium=cta&#38;utm_campaign=help_article&#38;utm_content=generate-correct-ics-files" data-astro-cid-mxhvemu3>
+Try the CorrectICS Autofix Tool
+</a> <a class="btn secondary" href="/help/" data-astro-cid-mxhvemu3>Back to Help</a> </div> </section> </div> </article> </main> <script>(function(){const HELP_ARTICLE_CANONICAL = "https://correctics.com/help/generate-correct-ics-files/";
+const HELP_ARTICLE_TITLE = "Generate Correct ICS Files (Best Practices + Templates)";
+const HELP_ARTICLE_SLUG = "generate-correct-ics-files";
+
+    (function () {
+      if (typeof window === "undefined") return;
+
+      const VISITOR_STORAGE_KEY = "correct_visitor_id";
+      const VISITOR_COOKIE_NAME = "correct_visitor_id";
+
+      function readCookie(name) {
+        try {
+          const parts = String(document.cookie || "")
+            .split(";")
+            .map((p) => p.trim())
+            .filter(Boolean);
+          for (const part of parts) {
+            const eq = part.indexOf("=");
+            if (eq <= 0) continue;
+            const k = part.slice(0, eq).trim();
+            if (k !== name) continue;
+            return decodeURIComponent(part.slice(eq + 1));
+          }
+        } catch {}
+        return "";
+      }
+
+      function writeCookie(name, value) {
+        try {
+          const maxAge = 60 * 60 * 24 * 365; // 1 year
+          document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
+        } catch {}
+      }
+
+      function createVisitorId() {
+        try {
+          if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
+        } catch {}
+        return `v_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+      }
+
+      function getOrCreateVisitorId() {
+        try {
+          const existingLs = localStorage.getItem(VISITOR_STORAGE_KEY);
+          if (existingLs && existingLs.trim().length >= 8) return existingLs.trim();
+        } catch {}
+        const existingCookie = readCookie(VISITOR_COOKIE_NAME);
+        if (existingCookie && String(existingCookie).trim().length >= 8) {
+          try { localStorage.setItem(VISITOR_STORAGE_KEY, String(existingCookie).trim()); } catch {}
+          return String(existingCookie).trim();
+        }
+        const next = createVisitorId();
+        try { localStorage.setItem(VISITOR_STORAGE_KEY, next); } catch {}
+        writeCookie(VISITOR_COOKIE_NAME, next);
+        return next;
+      }
+
+      function apiUrl(p) {
+        try {
+          const origin = String(window.__CORRECTICS_API_ORIGIN__ || "").trim().replace(/\/+$/, "");
+          if (origin) return origin + p;
+        } catch {}
+        return p;
+      }
+
+      function withAttributionProps(props) {
+        try {
+          const api = window.CORRECTICS;
+          if (api && typeof api.withAttributionProps === "function") {
+            return api.withAttributionProps(props && typeof props === "object" ? props : {});
+          }
+        } catch {}
+        return props && typeof props === "object" ? props : undefined;
+      }
+
+      async function trackUi(name, props) {
+        try {
+          const visitorId = getOrCreateVisitorId();
+          const payload = {
+            name,
+            occurred_at: new Date().toISOString(),
+            visitor_id: visitorId,
+            props: withAttributionProps(props),
+          };
+
+          const url = apiUrl("/api/track");
+          const body = JSON.stringify(payload);
+
+          // Prefer sendBeacon when available to reduce drops on fast bounces
+          // and during navigation after CTA clicks.
+          try {
+            if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+              const ok = navigator.sendBeacon(
+                url,
+                new Blob([body], { type: "application/json" }),
+              );
+              if (ok) return;
+            }
+          } catch {}
+
+          await fetch(url, {
+            method: "POST",
+            credentials: "include",
+            keepalive: true,
+            headers: {
+              "content-type": "application/json",
+              "x-correctics-visitor-id": visitorId,
+            },
+            body,
+          });
+        } catch {}
+      }
+
+      try {
+        const ref = document.referrer ? new URL(document.referrer) : null;
+        trackUi("help_article_view", {
+          page_kind: "help_article",
+          telemetry_version: "help_layout_v1",
+          path: window.location.pathname,
+          canonical: HELP_ARTICLE_CANONICAL || undefined,
+          help_article_title: HELP_ARTICLE_TITLE || undefined,
+          help_article_slug: HELP_ARTICLE_SLUG || undefined,
+          referrer_host: ref ? ref.hostname : null,
+        });
+      } catch {}
+
+      function maybeTrackFixClick(event) {
+        try {
+          const target = event && event.target;
+          if (!(target instanceof Element)) return;
+          const a = target.closest("a");
+          if (!(a instanceof HTMLAnchorElement)) return;
+
+          const hrefAttr = a.getAttribute("href") || "";
+          if (!hrefAttr) return;
+
+          const href = new URL(hrefAttr, window.location.origin);
+          if (!href.pathname.startsWith("/fix")) return;
+
+          const qp = href.searchParams;
+          trackUi("help_cta_click", {
+            page_kind: "help_article",
+            telemetry_version: "help_layout_v1",
+            path: window.location.pathname,
+            canonical: HELP_ARTICLE_CANONICAL || undefined,
+            help_article_slug: HELP_ARTICLE_SLUG || undefined,
+            cta_target_path: href.pathname,
+            cta_target_query: qp.toString() || undefined,
+            utm_source: qp.get("utm_source") || undefined,
+            utm_medium: qp.get("utm_medium") || undefined,
+            utm_campaign: qp.get("utm_campaign") || undefined,
+            utm_term: qp.get("utm_term") || undefined,
+            utm_content: qp.get("utm_content") || undefined,
+          });
+        } catch {}
+      }
+
+      // "click" covers normal clicks (and Cmd/Ctrl+click). "auxclick" covers
+      // middle-click "open in new tab" which otherwise causes attribution gaps.
+      document.addEventListener("click", maybeTrackFixClick, { capture: true });
+      document.addEventListener("auxclick", maybeTrackFixClick, { capture: true });
+
+      // Soft top-CTA placement (after the intro), but avoid duplicating
+      // if the article already has an early /fix link.
+      try {
+        const soft = document.querySelector("[data-help-cta-soft]");
+        if (!(soft instanceof HTMLElement)) return;
+
+        const container = document.querySelector(".help-article__content");
+        if (!(container instanceof HTMLElement)) return;
+
+        const bottom = container.querySelector("[data-help-cta-bottom]");
+        const hasEarlyFixLink = (() => {
+          let checked = 0;
+          for (const child of Array.from(container.children)) {
+            if (child === soft) continue;
+            if (bottom && child === bottom) break;
+            if (child.querySelector && child.querySelector('a[href^="/fix"]')) return true;
+            checked++;
+            if (checked >= 6) break;
+          }
+          return false;
+        })();
+
+        if (hasEarlyFixLink) return;
+
+        const h1 = container.querySelector("h1");
+        let insertAfter = null;
+        if (h1) {
+          let node = h1.nextElementSibling;
+          while (node && node !== bottom) {
+            if (node.tagName === "P") {
+              insertAfter = node;
+              break;
+            }
+            if (node.tagName !== "SCRIPT" && node.tagName !== "STYLE") {
+              insertAfter = node;
+              break;
+            }
+            node = node.nextElementSibling;
+          }
+          insertAfter = insertAfter || h1;
+        } else {
+          insertAfter = container.firstElementChild;
+        }
+
+        if (insertAfter && insertAfter.parentElement === container) {
+          insertAfter.insertAdjacentElement("afterend", soft);
+        }
+        soft.hidden = false;
+      } catch {}
+    })();
+  })();</script>     <footer class="footer"> <div class="footer-html">© 2025 CorrectICS – Gulfhawk LLC • <a href="/privacy/">Privacy</a> • <a href="/terms/">Terms</a> • <a href="/about/">About</a></div> </footer> </div>  </body></html>
