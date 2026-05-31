@@ -1,6 +1,6 @@
 ---
 name: documents-master
-description: Master hub for Document, media & file generation. Use to generate documents and media: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, and professional video (AI + programmatic). Bundles 17 specialized skills (in skills/<name>/GUIDE.md). Use this for any documents or video task.
+description: Master hub for Document, media & file generation. Use to generate documents and media: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, professional video (AI + programmatic), and pro technical documentation/docs sites. Bundles 18 specialized skills (in skills/<name>/GUIDE.md). Use this for any documents or video task.
 ---
 
 # Document & file generation — Master Hub
@@ -9,7 +9,7 @@ Use to generate documents and files: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, 
 
 ## How to use this hub
 
-This single skill bundles **all 16 documents skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 18 documents skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -20,6 +20,8 @@ This single skill bundles **all 16 documents skills**. Each bundled skill's full
 
 - **video-production-pro** ⭐ — Professional AI + programmatic video production (2026): model selection (Veo 3.1, Kling 3.0, Runway Gen-4.5, Sora 2, Luma, Pika), cinematic shot prompts, multi-shot storyboarding, Remotion code-rendered/data-driven video, fal.ai/OpenAI pipelines, ffmpeg post, and per-platform export. Use to create/generate/edit any video.  
   → `skills/video-production-pro/GUIDE.md`
+- **documentation-pro** ⭐ — Professional technical documentation: the Diátaxis framework (tutorial/how-to/reference/explanation), docs-as-code tooling (Docusaurus/Mintlify/MkDocs), OpenAPI API reference, README/ADR/runbook structures, and writing style. Use for docs sites, API docs, and developer guides.  
+  → `skills/documentation-pro/GUIDE.md`
 - **anthropic-doc-coauthoring** — Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This ...  
   → `skills/anthropic-doc-coauthoring/GUIDE.md`
 - **anthropic-docx** — Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produ...  

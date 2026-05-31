@@ -1,6 +1,6 @@
 ---
 name: ui-master
-description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), responsive, or accessibility work. Bundles 19 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
+description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), charts & dashboards, responsive, or accessibility work. Bundles 20 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
 ---
 
 # UI, frontend & design — Master Hub
@@ -9,7 +9,7 @@ Use for any UI, frontend, styling, design-system, responsive, or accessibility w
 
 ## How to use this hub
 
-This single skill bundles **all 18 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 20 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -20,6 +20,8 @@ This single skill bundles **all 18 ui skills**. Each bundled skill's full instru
 
 - **brand-identity-creator** ⭐ — Create a complete brand identity end-to-end: logo suite (SVG + AI raster), color system with WCAG contrast, typography pairing, voice & tone, design tokens (CSS/Tailwind/JSON), and a full BRAND.md brand book. Use for branding, logos, rebrands, and style guides.  
   → `skills/brand-identity-creator/GUIDE.md`
+- **charts-and-dashboards** ⭐ — Build charts & analytics dashboards: pick the right chart for the question, choose a library (Recharts/ECharts/Tremor/visx), dashboard layout & KPIs, large-data performance, theming, and accessibility.  
+  → `skills/charts-and-dashboards/GUIDE.md`
 - **accessibility-auditing** — Use Cursor's browser aria snapshots to audit a page for accessibility issues — missing labels, broken tab order, contrast, and ARIA misuse.  
   → `skills/accessibility-auditing/GUIDE.md`
 - **anthropic-algorithmic-art** — Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields,...  

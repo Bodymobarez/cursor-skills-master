@@ -1,6 +1,6 @@
 ---
 name: backend-api-master
-description: Master hub for Backend, APIs & data. Use for backend, REST/GraphQL APIs, auth, databases, payments, and integrations. Bundles 12 specialized skills (in skills/<name>/GUIDE.md). Use this for any backend api task.
+description: Master hub for Backend, APIs & data. Use for backend, REST/GraphQL APIs, auth, databases, payments, integrations, webhooks, QR/GS1 barcodes, Google Sign-In, GPS & GIS maps. Bundles 18 specialized skills (in skills/<name>/GUIDE.md). Use this for any backend api task.
 ---
 
 # Backend, APIs & data — Master Hub
@@ -9,7 +9,7 @@ Use for backend, REST/GraphQL APIs, auth, databases, payments, and integrations.
 
 ## How to use this hub
 
-This single skill bundles **all 12 backend api skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 18 backend api skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -42,6 +42,18 @@ This single skill bundles **all 12 backend api skills**. Each bundled skill's fu
   → `skills/stripe-stripe-projects/GUIDE.md`
 - **stripe-upgrade-stripe** — Guide for upgrading Stripe API versions and SDKs  
   → `skills/stripe-upgrade-stripe/GUIDE.md`
+- **integrations-pro** — Professional third-party integrations: inbound/outbound webhooks (HMAC-signed), OAuth connectors, sync engines, idempotency, retries/backoff + DLQ, rate-limit handling, and observability.  
+  → `skills/integrations-pro/GUIDE.md`
+- **qr-code-generation** — Generate/decode QR codes: URL/vCard/Wi-Fi/payment payloads, error-correction levels, SVG for print, branded QR with logos, and dynamic trackable redirects.  
+  → `skills/qr-code-generation/GUIDE.md`
+- **gs1-barcodes** — GS1 & retail barcodes: GTIN/EAN-13/UPC-A, SSCC/GLN, check digits, symbology choice (GS1-128 / DataMatrix), Application Identifiers, and GS1 Digital Link.  
+  → `skills/gs1-barcodes/GUIDE.md`
+- **google-sign-in** — "Sign in with Google" via Google Identity Services: GIS button, server-side ID-token verification (aud/iss/exp), OAuth code flow + PKCE, and refresh-token handling.  
+  → `skills/google-sign-in/GUIDE.md`
+- **gps-integration** — Advanced GPS/geolocation: browser & mobile capture, PostGIS storage/queries, geofencing (enter/exit), routing/ETA, real-time tracking pipelines, and battery/privacy best practices.  
+  → `skills/gps-integration/GUIDE.md`
+- **gis-maps** — GIS & interactive maps: MapLibre/Mapbox/Leaflet/deck.gl, GeoJSON & vector tiles, clustering/heatmaps/choropleths, PostGIS spatial queries, geocoding/routing, and performance.  
+  → `skills/gis-maps/GUIDE.md`
 
 ## Note
 

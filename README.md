@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **261 advanced agent skills** for [Cursor](https://cursor.com), bundled into **16 master "hub" skills** — one per domain.
+A curated, **organized** collection of **275 advanced agent skills** for [Cursor](https://cursor.com), bundled into **17 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 258 entries, you get **16 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 275 entries, you get **17 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,9 +10,9 @@ Instead of flooding your skills list with 258 entries, you get **16 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 258 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 275 skills that's noisy. This repo merges them so:
 
-- ✅ Only **16 masters** appear in your Skills list.
+- ✅ Only **17 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
 - ✅ Nothing is lost — all original scripts, data, and references are kept beside each skill.
 - ✅ You invoke one master (e.g. `ui-master`) and the agent picks the right sub-skill.
@@ -52,28 +52,29 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 ---
 
-## The 16 masters
+## The 17 masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
-| `ui-master` | 19 | UI, frontend, design systems, **brand identity (logo/colors/type/brand book)**, CSS→Tailwind, responsive/a11y |
+| `ui-master` | 20 | UI, frontend, design systems, **brand identity (logo/colors/type/brand book)**, **charts & dashboards**, CSS→Tailwind, responsive/a11y |
 | `planning-master` | 11 | PRDs, issues, architecture (ADRs), prototyping, plan grilling |
 | `testing-master` | 9 | Unit, integration, E2E (Playwright), TDD, smoke testing |
 | `code-quality-master` | 16 | Code review, security audits, find-bugs, perf, simplification |
 | `git-workflow-master` | 14 | Commits, branches, PRs, CI triage, `gh` CLI |
 | `devops-master` | 20 | Docker, Kubernetes, Terraform, CI/CD, Cloudflare, Vercel deploy |
-| `documents-master` | 17 | DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, **pro video production (AI + Remotion)** |
+| `documents-master` | 18 | DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, **pro video production (AI + Remotion)**, **pro documentation/docs sites** |
 | `analytics-master` | 73 | PostHog, feature flags, error/LLM tracking, experiments, warehouse |
 | `debugging-master` | 8 | Systematic debugging, port conflicts, profiling, build monitoring |
 | `browser-automation-master` | 7 | Visual QA, network auditing, flow recording, Puppeteer |
-| `ai-mcp-master` | 11 | MCP server building, **advanced prompt & context engineering**, model APIs |
+| `ai-mcp-master` | 12 | MCP server building, **advanced prompt & context engineering**, **camera + AI vision analytics**, model APIs |
 | `content-seo-master` | 9 | Copywriting, blogs, brand/comms, SEO auditing |
 | `mobile-master` | 6 | React Native, Expo, iOS/Swift, Flutter, Xcode |
-| `backend-api-master` | 12 | REST/GraphQL, auth, databases, Stripe, integrations |
+| `backend-api-master` | 18 | REST/GraphQL, auth, databases, Stripe, **integrations-pro/webhooks**, **QR & GS1 barcodes**, **Google Sign-In**, **GPS & GIS maps** |
+| `business-master` | 5 | **CRM, ERP, accounting/finance, affiliate/referral, white-label/multi-tenant** |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 261 bundled skills across 16 masters.**
+**Total: 275 bundled skills across 17 masters.**
 
 ---
 
