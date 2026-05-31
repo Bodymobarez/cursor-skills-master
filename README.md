@@ -76,7 +76,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings â
 | `payments-master` | 6 | **Payment pages + every gateway/wallet worldwide & in Africa: Stripe/Adyen/PayPal, Paystack/Flutterwave/Fawry/Paymob/M-Pesa/Ozow, mobile money (MTN/Airtel/Orange/Vodafone Cash/Wave), orchestration, PCI/fraud** |
 | `communications-master` | 5 | **Real-time chat, WhatsApp Business, full helpdesk/support (tickets/SLA/KB/CSAT), omnichannel inbox + AI chatbot, advanced email (deliverability/inbound/2-way sync)** |
 | `fullstack-stacks-master` | 4 | **Compatible full-stack stacks: TypeScript unified (Node+Next+React+TS), Python (FastAPI/Django), Go/Rust/Laravel/Java/.NET + OpenAPI contracts** |
-| `composer-elite-master` | 5 | **Cursor Composer max power, Claude ultimate, Xcode full native, multi-agent orchestration (code+design), ship workflows** |
+| `ads-agent` | 5 | **ADS Agent** â€” Cursor Composer max power, Claude ultimate, Xcode native, multi-agent orchestration (code+design), ship workflows |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 

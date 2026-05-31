@@ -1,23 +1,27 @@
 ---
-name: composer-elite-master
+name: ads-agent
 description: >-
-  Master hub for maximum Cursor Composer power — Claude at full capability,
-  Xcode/native Apple development, elite multi-agent orchestration (coding +
-  design in parallel), and end-to-end ship workflows. Use to run Agent mode like
-  a senior team: Skills, Rules, MCP, @ context, background agents, Opus thinking,
-  and chained master skills (ui-master, god-mode, payments, etc.). Bundles 5
-  specialized skills. Use when pushing Composer to the limit.
+  ADS Agent — maximum Cursor Composer power. Claude at full capability, Xcode/native
+  Apple development, elite multi-agent orchestration (coding + design in parallel),
+  and end-to-end ship workflows. Use to run Agent mode like a senior team: Skills,
+  Rules, MCP, @ context, background agents, Opus thinking, and all domain master
+  skills (ui-master, god-mode, payments, etc.). Bundles 5 specialized skills. Use
+  when pushing Composer to the limit with ADS Agent.
 ---
 
-# Composer Elite — Master Hub
+# ADS Agent — Master Hub
 
-Squeeze **100% of Cursor Composer** + **Claude** + **Xcode** + **multi-agent** coding/design — all
-master skills working together in one Agent session.
+**ADS Agent** runs Cursor Composer at full power — **Claude** + **Xcode** + **multi-agent**
+coding/design — with every domain master skill orchestrated in one session.
 
-## How to use this hub
+## How to use ADS Agent
 
 Start with **cursor-composer-max-power**, add **claude-ultimate-in-cursor** for hard tasks, then the
 workflow or platform skill you need.
+
+```
+use ads-agent — ship [feature] end-to-end
+```
 
 ## Bundled skills
 
@@ -34,12 +38,12 @@ workflow or platform skill you need.
 
 ## Activates your other masters
 
-This hub is the **conductor** — invoke domain masters by name inside Composer:
+ADS Agent is the **conductor** — invoke domain masters by name inside Composer:
 
-`ui-master` · `ai-mcp-master` (god-mode, human-natural-code, prompt-engineering-advanced) ·
-`fullstack-stacks-master` · `payments-master` · `marketplace-master` · `communications-master` ·
-`code-quality-master` · `mobile-master` · and all other `*-master` hubs.
+`ui-master` · `ai-mcp-master` · `fullstack-stacks-master` · `payments-master` ·
+`marketplace-master` · `communications-master` · `code-quality-master` · `mobile-master` ·
+and all other `*-master` hubs.
 
 ## Note
 
-Bundled skills use `GUIDE.md` — only this master appears in the Cursor skills list.
+Bundled skills use `GUIDE.md` — only **ads-agent** appears in the Cursor skills list.
