@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **304 advanced agent skills** for [Cursor](https://cursor.com), bundled into **21 master "hub" skills** — one per domain.
+A curated, **organized** collection of **306 advanced agent skills** for [Cursor](https://cursor.com), bundled into **21 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 304 entries, you get **21 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 306 entries, you get **21 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 304 entries, you get **21 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 304 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 306 skills that's noisy. This repo merges them so:
 
 - ✅ Only **21 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -66,7 +66,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `analytics-master` | 73 | PostHog, feature flags, error/LLM tracking, experiments, warehouse |
 | `debugging-master` | 8 | Systematic debugging, port conflicts, profiling, build monitoring |
 | `browser-automation-master` | 7 | Visual QA, network auditing, flow recording, Puppeteer |
-| `ai-mcp-master` | 12 | MCP server building, **advanced prompt & context engineering**, **camera + AI vision analytics**, model APIs |
+| `ai-mcp-master` | 14 | MCP server building, **advanced prompt & context engineering**, **camera + AI vision analytics**, **human-natural code (anti AI-detector)**, **God-mode autonomous agent**, model APIs |
 | `content-seo-master` | 9 | Copywriting, blogs, brand/comms, SEO auditing |
 | `mobile-master` | 6 | React Native, Expo, iOS/Swift, Flutter, Xcode |
 | `backend-api-master` | 19 | REST/GraphQL, auth, **MFA/2FA authenticator security**, databases, Stripe, **integrations-pro/webhooks**, **QR & GS1 barcodes**, **Google Sign-In**, **GPS & GIS maps** |
@@ -78,7 +78,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 304 bundled skills across 21 masters.**
+**Total: 306 bundled skills across 21 masters.**
 
 ---
 

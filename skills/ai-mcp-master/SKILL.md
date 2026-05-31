@@ -1,6 +1,6 @@
 ---
 name: ai-mcp-master
-description: Master hub for AI, MCP & prompting. Use to build MCP servers, engineer/optimize prompts (incl. advanced prompt & context engineering), camera + AI vision analytics, and work with AI model APIs. Bundles 12 specialized skills (in skills/<name>/GUIDE.md). Use this for any ai mcp task.
+description: Master hub for AI, MCP & prompting. Use to build MCP servers, engineer/optimize prompts (incl. advanced prompt & context engineering), camera + AI vision analytics, human-natural code, God-mode autonomous agent behavior, and work with AI model APIs. Bundles 14 specialized skills (in skills/<name>/GUIDE.md). Use this for any ai mcp task.
 ---
 
 # AI, MCP & prompting — Master Hub
@@ -9,7 +9,7 @@ Use to build MCP servers, engineer/optimize prompts, and work with AI model APIs
 
 ## How to use this hub
 
-This single skill bundles **all 12 ai mcp skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 14 ai mcp skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -22,6 +22,10 @@ This single skill bundles **all 12 ai mcp skills**. Each bundled skill's full in
   → `skills/prompt-engineering-advanced/GUIDE.md`
 - **camera-ai-vision** ⭐ — Full camera handling + AI visual analytics: getUserMedia/mobile capture, on-device (MediaPipe/TFJS/WebGPU) vs cloud vision-LLM, object/face/pose detection, OCR, barcode/QR scanning, real-time frame pipelines, and privacy.  
   → `skills/camera-ai-vision/GUIDE.md`
+- **human-natural-code** ⭐ — Write code & reasoning that read as authentic, human-authored and idiomatic: avoid AI "tells" (line-by-line comments, generic names, over-abstraction), match the project's style, natural naming/comments/commits — passes AI-code detectors by being genuinely natural.  
+  → `skills/human-natural-code/GUIDE.md`
+- **god-mode-autonomous-agent** ⭐ — Operate at maximum capability/autonomy: deep parallel context gathering, planning, relentless execution, rigorous self-verification (build/test/lint), and follow-through until truly done — with sensible guardrails.  
+  → `skills/god-mode-autonomous-agent/GUIDE.md`
 - **anthropic-claude-api** — Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (...  
   → `skills/anthropic-claude-api/GUIDE.md`
 - **anthropic-mcp-builder** — Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate exte...  
