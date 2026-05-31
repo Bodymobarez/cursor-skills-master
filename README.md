@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **282 advanced agent skills** for [Cursor](https://cursor.com), bundled into **18 master "hub" skills** — one per domain.
+A curated, **organized** collection of **290 advanced agent skills** for [Cursor](https://cursor.com), bundled into **19 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 282 entries, you get **18 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 290 entries, you get **19 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,9 +10,9 @@ Instead of flooding your skills list with 282 entries, you get **18 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 282 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 290 skills that's noisy. This repo merges them so:
 
-- ✅ Only **18 masters** appear in your Skills list.
+- ✅ Only **19 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
 - ✅ Nothing is lost — all original scripts, data, and references are kept beside each skill.
 - ✅ You invoke one master (e.g. `ui-master`) and the agent picks the right sub-skill.
@@ -52,7 +52,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 ---
 
-## The 18 masters
+## The 19 masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
@@ -72,10 +72,11 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `backend-api-master` | 19 | REST/GraphQL, auth, **MFA/2FA authenticator security**, databases, Stripe, **integrations-pro/webhooks**, **QR & GS1 barcodes**, **Google Sign-In**, **GPS & GIS maps** |
 | `business-master` | 5 | **CRM, ERP, accounting/finance, affiliate/referral, white-label/multi-tenant** |
 | `travel-tech-master` | 6 | **Travel/tourism tech: GDS/NDC/bed-bank integration, channel manager, extranet, hotel/room mapping, B2B/B2C booking** |
+| `marketplace-master` | 8 | **Multi-vendor marketplaces (Amazon/Talabat-style): catalog, sellers, cart/order-split, split payments/payouts, delivery dispatch, search/recs, reviews/trust** |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 282 bundled skills across 18 masters.**
+**Total: 290 bundled skills across 19 masters.**
 
 ---
 
