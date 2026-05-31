@@ -1,6 +1,6 @@
 ---
 name: ai-mcp-master
-description: Master hub for AI, MCP & prompting. Use to build MCP servers, engineer/optimize prompts, and work with AI model APIs. Bundles 10 specialized skills (in skills/<name>/GUIDE.md). Use this for any ai mcp task.
+description: Master hub for AI, MCP & prompting. Use to build MCP servers, engineer/optimize prompts (incl. advanced prompt & context engineering), and work with AI model APIs. Bundles 11 specialized skills (in skills/<name>/GUIDE.md). Use this for any ai mcp task.
 ---
 
 # AI, MCP & prompting — Master Hub
@@ -18,6 +18,8 @@ This single skill bundles **all 10 ai mcp skills**. Each bundled skill's full in
 
 ## Bundled skills
 
+- **prompt-engineering-advanced** ⭐ — Advanced prompt & context engineering for production LLMs (2026): ROLE/LIMITS/CONTEXT/OUTPUT format, context engineering (Write/Select/Compress/Isolate), few-shot, meta-prompting, ReAct, reasoning-model tips, failure modes, and prompt evals.  
+  → `skills/prompt-engineering-advanced/GUIDE.md`
 - **anthropic-claude-api** — Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (...  
   → `skills/anthropic-claude-api/GUIDE.md`
 - **anthropic-mcp-builder** — Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate exte...  

@@ -1,6 +1,6 @@
 ---
 name: documents-master
-description: Master hub for Document & file generation. Use to generate documents and files: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images. Bundles 16 specialized skills (in skills/<name>/GUIDE.md). Use this for any documents task.
+description: Master hub for Document, media & file generation. Use to generate documents and media: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, and professional video (AI + programmatic). Bundles 17 specialized skills (in skills/<name>/GUIDE.md). Use this for any documents or video task.
 ---
 
 # Document & file generation — Master Hub
@@ -18,6 +18,8 @@ This single skill bundles **all 16 documents skills**. Each bundled skill's full
 
 ## Bundled skills
 
+- **video-production-pro** ⭐ — Professional AI + programmatic video production (2026): model selection (Veo 3.1, Kling 3.0, Runway Gen-4.5, Sora 2, Luma, Pika), cinematic shot prompts, multi-shot storyboarding, Remotion code-rendered/data-driven video, fal.ai/OpenAI pipelines, ffmpeg post, and per-platform export. Use to create/generate/edit any video.  
+  → `skills/video-production-pro/GUIDE.md`
 - **anthropic-doc-coauthoring** — Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This ...  
   → `skills/anthropic-doc-coauthoring/GUIDE.md`
 - **anthropic-docx** — Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produ...  
