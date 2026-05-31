@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **299 advanced agent skills** for [Cursor](https://cursor.com), bundled into **20 master "hub" skills** — one per domain.
+A curated, **organized** collection of **304 advanced agent skills** for [Cursor](https://cursor.com), bundled into **21 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 299 entries, you get **20 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 304 entries, you get **21 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,9 +10,9 @@ Instead of flooding your skills list with 299 entries, you get **20 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 299 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 304 skills that's noisy. This repo merges them so:
 
-- ✅ Only **20 masters** appear in your Skills list.
+- ✅ Only **21 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
 - ✅ Nothing is lost — all original scripts, data, and references are kept beside each skill.
 - ✅ You invoke one master (e.g. `ui-master`) and the agent picks the right sub-skill.
@@ -52,7 +52,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 ---
 
-## The 20 masters
+## The 21 masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
@@ -74,10 +74,11 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `travel-tech-master` | 6 | **Travel/tourism tech: GDS/NDC/bed-bank integration, channel manager, extranet, hotel/room mapping, B2B/B2C booking** |
 | `marketplace-master` | 8 | **Multi-vendor marketplaces (Amazon/Talabat-style): catalog, sellers, cart/order-split, split payments/payouts, delivery dispatch, search/recs, reviews/trust** |
 | `payments-master` | 6 | **Payment pages + every gateway/wallet worldwide & in Africa: Stripe/Adyen/PayPal, Paystack/Flutterwave/Fawry/Paymob/M-Pesa/Ozow, mobile money (MTN/Airtel/Orange/Vodafone Cash/Wave), orchestration, PCI/fraud** |
+| `communications-master` | 5 | **Real-time chat, WhatsApp Business, full helpdesk/support (tickets/SLA/KB/CSAT), omnichannel inbox + AI chatbot, advanced email (deliverability/inbound/2-way sync)** |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 299 bundled skills across 20 masters.**
+**Total: 304 bundled skills across 21 masters.**
 
 ---
 
