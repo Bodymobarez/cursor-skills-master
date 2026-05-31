@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **275 advanced agent skills** for [Cursor](https://cursor.com), bundled into **17 master "hub" skills** — one per domain.
+A curated, **organized** collection of **276 advanced agent skills** for [Cursor](https://cursor.com), bundled into **17 master "hub" skills** — one per domain.
 
-Instead of flooding your skills list with 275 entries, you get **17 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
+Instead of flooding your skills list with 276 entries, you get **17 clean masters**. Each master knows about all the skills in its domain and routes the agent to the right one(s) on demand.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 275 entries, you get **17 clean master
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 275 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 276 skills that's noisy. This repo merges them so:
 
 - ✅ Only **17 masters** appear in your Skills list.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -69,12 +69,12 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `ai-mcp-master` | 12 | MCP server building, **advanced prompt & context engineering**, **camera + AI vision analytics**, model APIs |
 | `content-seo-master` | 9 | Copywriting, blogs, brand/comms, SEO auditing |
 | `mobile-master` | 6 | React Native, Expo, iOS/Swift, Flutter, Xcode |
-| `backend-api-master` | 18 | REST/GraphQL, auth, databases, Stripe, **integrations-pro/webhooks**, **QR & GS1 barcodes**, **Google Sign-In**, **GPS & GIS maps** |
+| `backend-api-master` | 19 | REST/GraphQL, auth, **MFA/2FA authenticator security**, databases, Stripe, **integrations-pro/webhooks**, **QR & GS1 barcodes**, **Google Sign-In**, **GPS & GIS maps** |
 | `business-master` | 5 | **CRM, ERP, accounting/finance, affiliate/referral, white-label/multi-tenant** |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 
-**Total: 275 bundled skills across 17 masters.**
+**Total: 276 bundled skills across 17 masters.**
 
 ---
 

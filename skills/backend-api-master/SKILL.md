@@ -1,6 +1,6 @@
 ---
 name: backend-api-master
-description: Master hub for Backend, APIs & data. Use for backend, REST/GraphQL APIs, auth, databases, payments, integrations, webhooks, QR/GS1 barcodes, Google Sign-In, GPS & GIS maps. Bundles 18 specialized skills (in skills/<name>/GUIDE.md). Use this for any backend api task.
+description: Master hub for Backend, APIs & data. Use for backend, REST/GraphQL APIs, auth, MFA/2FA authenticator security, databases, payments, integrations, webhooks, QR/GS1 barcodes, Google Sign-In, GPS & GIS maps. Bundles 19 specialized skills (in skills/<name>/GUIDE.md). Use this for any backend api task.
 ---
 
 # Backend, APIs & data — Master Hub
@@ -9,7 +9,7 @@ Use for backend, REST/GraphQL APIs, auth, databases, payments, and integrations.
 
 ## How to use this hub
 
-This single skill bundles **all 18 backend api skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 19 backend api skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -50,6 +50,8 @@ This single skill bundles **all 18 backend api skills**. Each bundled skill's fu
   → `skills/gs1-barcodes/GUIDE.md`
 - **google-sign-in** — "Sign in with Google" via Google Identity Services: GIS button, server-side ID-token verification (aud/iss/exp), OAuth code flow + PKCE, and refresh-token handling.  
   → `skills/google-sign-in/GUIDE.md`
+- **mfa-authenticator-security** — Multi-factor auth & authenticator security: TOTP (Google Authenticator/Authy) with QR enrollment & replay/rate-limit protection, WebAuthn/passkeys, SMS/email OTP, push approval, backup/recovery codes, and step-up/adaptive auth.  
+  → `skills/mfa-authenticator-security/GUIDE.md`
 - **gps-integration** — Advanced GPS/geolocation: browser & mobile capture, PostGIS storage/queries, geofencing (enter/exit), routing/ETA, real-time tracking pipelines, and battery/privacy best practices.  
   → `skills/gps-integration/GUIDE.md`
 - **gis-maps** — GIS & interactive maps: MapLibre/Mapbox/Leaflet/deck.gl, GeoJSON & vector tiles, clustering/heatmaps/choropleths, PostGIS spatial queries, geocoding/routing, and performance.  
