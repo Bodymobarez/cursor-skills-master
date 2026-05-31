@@ -1,6 +1,6 @@
 ---
 name: ui-master
-description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), charts & dashboards, responsive, or accessibility work. Bundles 20 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
+description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), Figma-grade design systems, ultra-HD/8K-crisp rendering, award-winning effects, charts & dashboards, responsive, or accessibility work. Bundles 23 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
 ---
 
 # UI, frontend & design — Master Hub
@@ -9,7 +9,7 @@ Use for any UI, frontend, styling, design-system, responsive, or accessibility w
 
 ## How to use this hub
 
-This single skill bundles **all 20 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 23 ui skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -22,6 +22,12 @@ This single skill bundles **all 20 ui skills**. Each bundled skill's full instru
   → `skills/brand-identity-creator/GUIDE.md`
 - **charts-and-dashboards** ⭐ — Build charts & analytics dashboards: pick the right chart for the question, choose a library (Recharts/ECharts/Tremor/visx), dashboard layout & KPIs, large-data performance, theming, and accessibility.  
   → `skills/charts-and-dashboards/GUIDE.md`
+- **figma-grade-design-system** ⭐ — Design & generate Figma-grade (and better) design systems in code: 3-tier design tokens, modular type scale + 8pt grid, variant×state components (CVA + Radix/React Aria), dark mode/theming, and design-to-code/Figma interop. Use for top-tier design quality.  
+  → `skills/figma-grade-design-system/GUIDE.md`
+- **ultra-hd-visual-rendering** ⭐ — Razor-sharp "8K-grade" rendering: vector-first SVG, devicePixelRatio canvas/WebGL, AVIF/WebP srcset, OKLCH/P3 wide-gamut color, variable-font optical sizing, hairline borders, and 2–4×/300DPI exports.  
+  → `skills/ultra-hd-visual-rendering/GUIDE.md`
+- **award-winning-ui-effects** ⭐ — Awwwards/FWA-tier, never-seen-before UI: WebGL/shaders (Three.js/R3F/OGL), mesh/aurora gradients, glassmorphism, 3D, scroll storytelling (GSAP/Lenis), kinetic type, micro-interactions, View Transitions — all at 60fps with reduced-motion/a11y fallbacks.  
+  → `skills/award-winning-ui-effects/GUIDE.md`
 - **accessibility-auditing** — Use Cursor's browser aria snapshots to audit a page for accessibility issues — missing labels, broken tab order, contrast, and ARIA misuse.  
   → `skills/accessibility-auditing/GUIDE.md`
 - **anthropic-algorithmic-art** — Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields,...  
