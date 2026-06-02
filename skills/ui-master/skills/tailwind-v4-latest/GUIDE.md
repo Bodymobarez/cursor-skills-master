@@ -1,48 +1,42 @@
 ---
 name: tailwind-v4-latest
 description: >-
-  Use Tailwind CSS at the latest version (v4.x, currently v4.3+). Use for new
-  projects, upgrades from v3, setup with Next.js/Vite/PostCSS, CSS-first @theme
-  config, Oxide engine, breaking changes, shadcn/ui compatibility, and v4.3
-  utilities. There is no Tailwind v5 — v4 is the current major release.
+  Tailwind CSS v4.3+ (no v5): Vite/Next/PostCSS/CLI, @import tailwindcss, @theme,
+  @theme inline, @source, @custom-variant, Oxide engine, v3→v4 upgrade, breaking
+  changes, shadcn, plugins. Foundation skill — pair with tailwind-design-tokens.
 ---
 
 # Tailwind CSS v4 Latest (v4.3+)
 
-**Always use Tailwind v4.x** — there is **no v5**. Latest stable line: **v4.3+** (Oxide engine, CSS-native config).
+**Always Tailwind v4.x** — **no v5 exists**. Latest line: **v4.3+** (Rust Oxide engine).
 
-> Default stack: **Tailwind v4 + React + Vite or Next.js 15**. Pair with `figma-grade-design-system` for tokens.
+**Full stack hub:** use `tailwind-master` for tokens, shadcn, Radix, RTL, UAE DLS, Next.js.
 
-## Install (latest)
+## Install
 
 ```bash
 npm install tailwindcss@latest @tailwindcss/vite@latest
-# or PostCSS:
+# PostCSS (Next.js):
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
-Pin in `package.json`: `"tailwindcss": "^4.3.0"` (or `@latest` on greenfield).
+Pin: `"tailwindcss": "^4.3.0"`
 
-## Setup by bundler
+## Setup
 
-### Vite (recommended)
+### Vite
 
 ```ts
-// vite.config.ts
 import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({ plugins: [tailwindcss()] });
 ```
 
 ```css
-/* src/index.css */
 @import "tailwindcss";
+@source "../src/**/*.{tsx,ts,jsx,js}";
 ```
 
 ### Next.js 15
-
-```bash
-npm install tailwindcss @tailwindcss/postcss
-```
 
 ```js
 // postcss.config.mjs
@@ -52,124 +46,109 @@ export default { plugins: { "@tailwindcss/postcss": {} } };
 ```css
 /* app/globals.css */
 @import "tailwindcss";
+@source "../../app/**/*.{tsx,ts}";
+@source "../../components/**/*.{tsx,ts}";
 ```
-
-Remove v3 leftovers: `postcss-import`, `autoprefixer`, `@tailwind base/components/utilities`.
 
 ### CLI
 
 ```bash
-npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css
+npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch
 ```
 
-## Configuration: CSS-first (`@theme`) — not `tailwind.config.js`
+## Configuration: CSS-first
 
-v4 config lives in **CSS**, not a huge JS file:
+**No primary `tailwind.config.js`** — use CSS:
 
 ```css
 @import "tailwindcss";
 
 @theme {
-  /* colors → utilities: bg-brand, text-brand */
   --color-brand: oklch(0.55 0.2 260);
-  --color-brand-foreground: oklch(0.98 0 0);
-
-  /* fonts → font-display */
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
-
-  /* spacing/radius extensions */
+  --font-sans: "Inter", ui-sans-serif, system-ui;
   --radius-card: 1rem;
-
-  /* breakpoints (optional override) */
   --breakpoint-3xl: 120rem;
 }
 
-/* scan paths (replaces content[] in old config) */
+/* Runtime theming (dark / multi-tenant) */
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-background: var(--color-background);
+}
+
 @source "../app/**/*.{tsx,ts}";
-@source "../components/**/*.{tsx,ts}";
 ```
 
-- Design tokens from `brand-identity-creator` map directly into `@theme`.
-- Dark mode: `@variant dark (&:where(.dark, .dark *));` or `prefers-color-scheme` strategy in docs.
+## Custom variants
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant hocus (&:hover, &:focus-visible);
+```
 
 ## Upgrade v3 → v4
 
 ```bash
-npx @tailwindcss/upgrade
+npx @tailwindcss/upgrade   # Node 20+, use a branch
 ```
-Requires **Node 20+**. Run in a branch; review diff; test UI.
-
-### Manual breaking changes (must know)
 
 | v3 | v4 |
 |----|-----|
-| `@tailwind base;` … | `@import "tailwindcss";` |
-| `tailwind.config.js` `theme.extend` | `@theme { --color-* … }` |
-| `content: [...]` | `@source "path/**/*.tsx"` |
+| `@tailwind base/components/utilities` | `@import "tailwindcss"` |
+| `theme.extend` in JS | `@theme { }` |
+| `content: []` | `@source "path"` |
 | `bg-opacity-50` | `bg-black/50` |
-| `flex-grow` / `flex-shrink` | `grow` / `shrink` |
-| `shadow-sm` (old small) | `shadow-xs` (scale renamed) |
-| `shadow` (old default) | `shadow-sm` |
-| `outline-none` (a11y ring) | `outline-hidden` |
-| `ring` (3px default) | `ring-3` + explicit `ring-color` |
+| `flex-grow` | `grow` |
+| old `shadow-sm` | `shadow-xs` |
+| old default `shadow` | `shadow-sm` |
+| `outline-none` | `outline-hidden` + focus ring |
+| default `ring` | `ring-3` + `ring-color` |
 | `bg-gradient-to-r` | `bg-linear-to-r` |
-| Default `border` color gray-200 | `currentColor` — add `border-gray-200` explicitly |
-| `space-y-*` on inline layouts | prefer `flex flex-col gap-*` |
+| default border gray | `border` uses `currentColor` — set `border-border` |
 
-Full list: https://tailwindcss.com/docs/upgrade-guide
+Docs: https://tailwindcss.com/docs/upgrade-guide
 
-## v4.3+ new utilities (use them)
+## v4.3+ utilities
 
-- **Scrollbars**: `scrollbar-thin`, `scrollbar-thumb-*`, `scrollbar-track-*`
-- **Container size queries**: `@container-size` for height-aware container queries
-- **`zoom-*`**: CSS `zoom` property utilities
-- **`tab-*`**: tab character width
-- **Stacked `@variant`**: compound variants in CSS
-- **Functional utilities** with defaults in `@utility`
+- `scrollbar-thin`, `scrollbar-thumb-*`
+- `@container` / `@container-size`
+- `zoom-*`
+- `@utility` for custom utilities
+- `@plugin` for official/third-party plugins
 
-## Custom utilities & plugins
-
-```css
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-  max-width: 80rem;
-}
-
-@plugin "@tailwindcss/forms";
-@plugin "@tailwindcss/typography";
-```
-
-## shadcn/ui + v4
-
-- Init shadcn with **Tailwind v4** template (CLI tracks latest).
-- CSS variables in `:root` / `.dark` still work; align with `@theme` colors.
-- Components use `cn()` + tailwind-merge — keep `tailwind-merge` updated.
-- After upgrade: re-check `ring`, `shadow`, `border` class names against v4 renames.
-
-## Project checklist (agent must follow)
+## Production checklist
 
 ```
-- [ ] tailwindcss@^4.3 (not v3, not imaginary v5)
-- [ ] @import "tailwindcss" in global CSS (no @tailwind directives)
-- [ ] @theme tokens; @source paths cover all template files
-- [ ] Vite plugin OR @tailwindcss/postcss (not old tailwindcss PostCSS plugin alone)
-- [ ] Removed autoprefixer/postcss-import unless needed for non-Tailwind CSS
-- [ ] Updated shadow/ring/outline class names if migrating v3 markup
-- [ ] borders specify color (border-border or border-gray-200)
-- [ ] Prefer gap over space-y where layout broke after upgrade
+- [ ] tailwindcss ^4.3 (not v3, not "v5")
+- [ ] @import "tailwindcss" only
+- [ ] @theme + semantic tokens (@theme inline if runtime themes)
+- [ ] @source includes app, components, node_modules UI libs
+- [ ] Vite plugin OR @tailwindcss/postcss
+- [ ] Removed legacy autoprefixer-only pipeline for Tailwind
+- [ ] Shadow/ring/outline classes audited post-migration
+- [ ] border-* includes color token
+- [ ] cn() + tailwind-merge on components
 ```
+
+## Stack completion (strongest setup)
+
+After this skill, read in order:
+
+1. `tailwind-design-tokens`
+2. `tailwind-cva-components`
+3. `tailwind-shadcn-ui` OR `tailwind-uae-aegov-dls`
+4. `tailwind-rtl-i18n` (if Arabic)
+5. `tailwind-nextjs-rsc` (if Next)
 
 ## Anti-patterns
 
-- Creating new projects on **Tailwind v3** or documenting **v5** (doesn't exist).
-- Keeping `tailwind.config.ts` as primary config without migrating to `@theme`.
-- Using `bg-opacity-*` / `text-opacity-*` (removed).
-- Assuming `ring` still means 3px blue halo (v4 default changed).
-- Skipping `npx @tailwindcss/upgrade` on large v3 codebases.
+- New projects on v3
+- Documenting fictional v5
+- Raw hex in components instead of `@theme` tokens
+- `bg-opacity-*` / `text-opacity-*`
+- Keeping JS config as sole source of truth
+- Runtime CSS-in-JS with Next.js RSC
 
-## Related skills
+## Related
 
-- `converting-css-to-tailwind` / `converting-css-modules-to-tailwind` — class migration
-- `figma-grade-design-system` — tokens → `@theme`
-- `using-ui-stack` — design-system discipline with Tailwind
+All skills in `tailwind-master`; `figma-grade-design-system` (ui-master)

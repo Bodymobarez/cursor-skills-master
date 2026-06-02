@@ -1,6 +1,6 @@
 ---
 name: documents-master
-description: Master hub for Document, media & file generation. Use to generate documents and media: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, professional video (AI + programmatic), and pro technical documentation/docs sites. Bundles 18 specialized skills (in skills/<name>/GUIDE.md). Use this for any documents or video task.
+description: Master hub for Document, media & file generation. Use to generate documents and media: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, images, and pro technical documentation/docs sites. For full AI video creation (Veo, Kling, Remotion, ffmpeg, social export) use video-ai-master. Bundles 21 specialized skills. Use for documents; use video-ai-master for video.
 ---
 
 # Document & file generation — Master Hub
@@ -9,7 +9,7 @@ Use to generate documents and files: DOCX, PDF, PPTX, XLSX, Markdown, diagrams, 
 
 ## How to use this hub
 
-This single skill bundles **all 18 documents skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 21 documents skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -18,7 +18,7 @@ This single skill bundles **all 18 documents skills**. Each bundled skill's full
 
 ## Bundled skills
 
-- **video-production-pro** ⭐ — Professional AI + programmatic video production (2026): model selection (Veo 3.1, Kling 3.0, Runway Gen-4.5, Sora 2, Luma, Pika), cinematic shot prompts, multi-shot storyboarding, Remotion code-rendered/data-driven video, fal.ai/OpenAI pipelines, ffmpeg post, and per-platform export. Use to create/generate/edit any video.  
+- **video-production-pro** — Condensed AI video reference. **For full workflows use `video-ai-master`** (10 skills: prompts, APIs, storyboard, avatars, export).  
   → `skills/video-production-pro/GUIDE.md`
 - **documentation-pro** ⭐ — Professional technical documentation: the Diátaxis framework (tutorial/how-to/reference/explanation), docs-as-code tooling (Docusaurus/Mintlify/MkDocs), OpenAPI API reference, README/ADR/runbook structures, and writing style. Use for docs sites, API docs, and developer guides.  
   → `skills/documentation-pro/GUIDE.md`
@@ -54,6 +54,16 @@ This single skill bundles **all 18 documents skills**. Each bundled skill's full
   → `skills/sentry-doc-coauthoring/GUIDE.md`
 - **sentry-presentation-creator** — Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. Use when asked to "create a presentation", "build slides", "make a deck", "create a data presentation", ...  
   → `skills/sentry-presentation-creator/GUIDE.md`
+- **pdf-pro-documents** ⭐ — Produce professional, structured, accessible PDFs: engine decision matrix (Puppeteer/Playwright HTML→PDF, @react-pdf/renderer, WeasyPrint, Typst, LaTeX, pdf-lib), typographic hierarchy, paginating tables, TOC, running headers/footers + page numbers, branding, embedded fonts + Arabic/RTL shaping, PDF/A archival & PDF/UA tagging, merge/split/stamp/watermark, fillable forms, encryption/permissions.  
+  → `skills/pdf-pro-documents/GUIDE.md`
+- **excel-pro-spreadsheets** ⭐ — Build professional, organized Excel workbooks: library matrix (ExcelJS / SheetJS / openpyxl / XlsxWriter), multi-sheet financial-model layout (assumptions→calcs→outputs), number/date/currency formats, named ranges, data validation/dropdowns, conditional formatting, cross-sheet formulas, tables, charts, freeze panes, protection, CSV/formula-injection security, streaming for large data, Arabic/RTL direction.  
+  → `skills/excel-pro-spreadsheets/GUIDE.md`
+- **contracts-pro** ⭐ — Engineer professional contracts: full anatomy (parties→signatures→schedules), versioned clause library + templating (docxtemplater / JSON→DOCX/PDF) with variables and conditional clauses, versioning/redlines, e-signature integration (DocuSign/Dropbox Sign) with webhook + document integrity, UAE/GCC bilingual Arabic/English + RTL. Engineering guidance, not legal advice — recommends lawyer review.  
+  → `skills/contracts-pro/GUIDE.md`
+
+## Pairs well with
+
+**`video-ai-master`** — dedicated hub for AI video generation, editing, and platform export.
 
 ## Note
 

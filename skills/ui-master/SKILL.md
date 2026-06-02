@@ -1,6 +1,6 @@
 ---
 name: ui-master
-description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), Tailwind CSS v4 latest, Figma-grade design systems, ultra-HD/8K-crisp rendering, award-winning effects, advanced forms, charts & dashboards, responsive, or accessibility work. Bundles 27 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
+description: Master hub for UI, frontend & design. Use for any UI, frontend, styling, design-system, brand identity (logo/colors/typography/brand book), Tailwind CSS v4 (full stack in tailwind-master), Figma-grade design systems, ultra-HD/8K-crisp rendering, award-winning effects, advanced forms, charts & dashboards, responsive, or accessibility work. Bundles 27 specialized skills (in skills/<name>/GUIDE.md). Use this for any ui task.
 ---
 
 # UI, frontend & design — Master Hub
@@ -22,7 +22,7 @@ This single skill bundles **all 27 ui skills**. Each bundled skill's full instru
   → `skills/brand-identity-creator/GUIDE.md`
 - **charts-and-dashboards** ⭐ — Build charts & analytics dashboards: pick the right chart for the question, choose a library (Recharts/ECharts/Tremor/visx), dashboard layout & KPIs, large-data performance, theming, and accessibility.  
   → `skills/charts-and-dashboards/GUIDE.md`
-- **tailwind-v4-latest** ⭐ — Tailwind CSS **v4.3+** (no v5): Vite/Next setup, `@import "tailwindcss"`, CSS-first `@theme` + `@source`, Oxide engine, v3→v4 upgrade tool, breaking changes (shadow/ring/border), shadcn/ui, v4.3 scrollbar/zoom utilities.  
+- **tailwind-v4-latest** ⭐ — Tailwind CSS **v4.3+** (no v5): setup, `@theme`, upgrade guide. For **full stack** (tokens, CVA, shadcn, Radix, RTL, UAE DLS, Next RSC) use **`tailwind-master`** (12 skills).  
   → `skills/tailwind-v4-latest/GUIDE.md`
 - **figma-grade-design-system** ⭐ — Design & generate Figma-grade (and better) design systems in code: 3-tier design tokens, modular type scale + 8pt grid, variant×state components (CVA + Radix/React Aria), dark mode/theming, and design-to-code/Figma interop. Use for top-tier design quality.  
   → `skills/figma-grade-design-system/GUIDE.md`
@@ -72,6 +72,11 @@ This single skill bundles **all 27 ui skills**. Each bundled skill's full instru
   → `skills/vercel-react-view-transitions/GUIDE.md`
 - **vercel-web-design-guidelines** — Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".  
   → `skills/vercel-web-design-guidelines/GUIDE.md`
+
+## Pairs well with
+
+**`color-design-master`** — AI color harmony (Artist-Engineer): OKLCH palettes, WCAG, semantic roles, LLM palette prompts.  
+**`tailwind-master`** — dedicated hub for the complete Tailwind v4 production stack (tokens → components → gov UAE DLS).
 
 ## Note
 

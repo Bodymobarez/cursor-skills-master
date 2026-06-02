@@ -1,13 +1,12 @@
 ---
 name: video-production-pro
 description: >-
-  Professional AI + programmatic video production (2026). Use when the user wants
-  to create, generate, edit, or render a video — ads, social clips, explainers,
-  B-roll, product demos, avatars, or data-driven videos. Covers model selection
-  (Veo 3.1, Kling 3.0, Runway Gen-4.5, Sora 2, Luma, Pika), prompt structure for
-  cinematic shots, multi-shot storyboarding, programmatic rendering with Remotion,
-  fal.ai/OpenAI API pipelines, ffmpeg post, and platform specs.
+  Condensed AI video production reference (2026). For full step-by-step skills use
+  video-ai-master (10 bundled guides). Use for quick model/prompt/ffmpeg reminders.
 ---
+
+> **Prefer `video-ai-master`** for create/generate/edit video tasks — it bundles
+> workflow, APIs, storyboard, avatars, Remotion, and social export as separate guides.
 
 # Professional Video Production
 

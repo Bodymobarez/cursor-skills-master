@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Cursor Skills Master — installer
-# Installs 16 master skills (bundling 258 skills) into Cursor.
+# Installs 34 hub skills (yasser + 33 domain *-master + ads-agent) bundling 426 skills.
 #
 # Usage:
 #   ./install.sh                 # install globally to ~/.cursor/skills/
@@ -66,9 +66,9 @@ if [ -n "$(ls -A "$SKILLS_DIR" 2>/dev/null || true)" ]; then
   warn "Existing skills backed up to: $BACKUP"
 fi
 
-# --- install masters (overwrite same-named) ---
+# --- install hubs: *-master, ads-agent, yasser (overwrite same-named) ---
 COUNT=0
-for master in "$SRC"/*-master; do
+for master in "$SRC"/*-master "$SRC"/ads-agent; do
   [ -d "$master" ] || continue
   name="$(basename "$master")"
   rm -rf "$SKILLS_DIR/$name"
@@ -82,5 +82,5 @@ ok "Bundled sub-skills available: $BUNDLED"
 echo
 info "Next steps:"
 echo "  1. Restart Cursor (or open a new chat)."
-echo "  2. Open Settings → Skills to see the *-master skills."
-echo "  3. Try: \"use ui-master and build a landing page\""
+echo "  2. Open Settings → Skills — use yasser (all-in-one) or any *-master."
+echo "  3. Try: \"/yasser build a SaaS app\" or \"use ui-master and build a landing page\""
