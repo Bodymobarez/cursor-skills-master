@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Cursor Skills Master — installer
-# Installs 34 hub skills (yasser + 33 domain *-master + ads-agent) bundling 426 skills.
+# Installs 35 hub skills (yasser + 34 domain *-master + ads-agent) bundling 437 skills.
 #
 # Usage:
 #   ./install.sh                 # install globally to ~/.cursor/skills/

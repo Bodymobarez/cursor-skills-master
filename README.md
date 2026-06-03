@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **426 advanced agent skills** for [Cursor](https://cursor.com), bundled into **33 domain masters** — plus **`yasser`** the universal super-hub.
+A curated, **organized** collection of **437 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
 
-Instead of flooding your skills list with 426 entries, you get **34 hubs** (`yasser` + 33 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
+Instead of flooding your skills list with 437 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 426 entries, you get **34 hubs** (`yas
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 426 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 437 skills that's noisy. This repo merges them so:
 
 - ✅ **Yasser** (`/yasser`) routes to all domains — or pick one of **33 masters** alone.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -56,9 +56,9 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 | Hub | Skills | What it covers |
 |-----|:--:|----------------|
-| **`yasser`** | routes all | **Super-hub:** all masters + 426 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
+| **`yasser`** | routes all | **Super-hub:** all masters + 437 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
 
-## The 33 domain masters
+## The 34 domain masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
@@ -95,8 +95,9 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `ads-agent` | 5 | **ADS Agent** — Cursor Composer max power, Claude ultimate, Xcode native, multi-agent orchestration (code+design), ship workflows |
 | `skills-meta-master` | 15 | Authoring skills, rules, hooks, subagents, skill scanning |
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
+| `prompt-master` | 11 | **Elite prompt engineering** + 10 expert personas: PhD researcher, competitive intelligence, content strategist, business consultant, document analyst, LinkedIn growth, personal branding, marketing director, viral content, strategic advisor |
 
-**Total: 426 bundled skills across 33 domain masters + Yasser super-hub.**
+**Total: 437 bundled skills across 34 domain masters + Yasser super-hub.**
 
 ---
 

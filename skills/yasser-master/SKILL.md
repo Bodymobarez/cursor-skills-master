@@ -13,7 +13,7 @@ description: >-
 
 # Yasser — الكل في الكل (Universal Super-Hub)
 
-**Yasser** = meta-router لكل الـ **33 domain masters** + **ads-agent** + **426 bundled skills**.
+**Yasser** = meta-router لكل الـ **34 domain masters** + **ads-agent** + **437 bundled skills**.
 
 > **مهم:** الـ masters المنفصلة (`ui-master`, `payments-master`, …) **تفضل موجودة** — استخدمها لو عايز تخصص. استخدم **Yasser** لما تحب الـ agent يختار من كل الدنيا.
 
@@ -70,6 +70,7 @@ Quick decision tree → `skills/yasser-universal-routing/GUIDE.md`
 | **content-seo-master** | Copy, blog, SEO audit | `content-seo-master/SKILL.md` |
 | **productivity-master** | Context, onboarding, parallel explore | `productivity-master/SKILL.md` |
 | **skills-meta-master** | Author skills, rules, hooks | `skills-meta-master/SKILL.md` |
+| **prompt-master** | Elite prompt engineering + 10 expert personas (PhD researcher, competitive intel, content/business/strategy/branding/LinkedIn/marketing/viral) | `prompt-master/SKILL.md` |
 | **ads-agent** | Composer max power, multi-agent ship | `ads-agent/SKILL.md` |
 
 ---
