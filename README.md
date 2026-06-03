@@ -66,7 +66,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `video-ai-master` | 12 | **AI video**: Veo/Kling/Runway, storyboard, fal.ai — **Remotion full install** (`npx create-video@latest`), render, avatars, ffmpeg, social export |
 | `color-design-master` | 9 | **AI color harmony (Artist-Engineer)**: color theory, LLM palette prompts, OKLCH ramps, WCAG contrast, semantic UI roles, dark/light harmony, token export |
 | `tailwind-master` | 13 | **Full Tailwind v4.3+ stack**: `@theme` tokens, CVA, shadcn/ui, Radix, RTL/Arabic, dark mode, **UAE AEGov DLS**, Next.js RSC, plugins, CSS/CSS Modules migration |
-| `ui-master` | 27 | UI, frontend, **Tailwind v4** (see also `tailwind-master`), **advanced forms**, **brand identity**, **charts & dashboards**, **Figma-grade design systems**, **ultra-HD/8K rendering**, **award-winning effects**, CSS→Tailwind, responsive/a11y |
+| `ui-master` | 28 | UI, frontend, **Tailwind v4**, **elite UI/UX redesigns** (Stripe/Linear tier), **advanced forms**, **brand identity**, **charts & dashboards**, **Figma-grade design systems**, **ultra-HD/8K rendering**, **award-winning effects**, CSS→Tailwind, responsive/a11y |
 | `planning-master` | 11 | PRDs, issues, architecture (ADRs), prototyping, plan grilling |
 | `testing-master` | 9 | Unit, integration, E2E (Playwright), TDD, smoke testing |
 | `code-quality-master` | 16 | Code review, security audits, find-bugs, perf, simplification |

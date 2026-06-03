@@ -11,7 +11,7 @@ description: >-
 
 | Keywords (any language) | Master |
 |-------------------------|--------|
-| UI, frontend, React, page, landing, form, logo, brand, chart, dashboard, Tailwind, CSS, RTL, عربي, تصميم | `ui-master` / `tailwind-master` / `color-design-master` |
+| UI, frontend, redesign, premium UI, Stripe, Linear, Notion, glassmorphism, dashboard, Framer Motion, elite design, عربي, تصميم | `ui-master` → **`elite-ui-ux-design-system`** + `tailwind-master` |
 | فيديو, video, Veo, Kling, reel, TikTok, avatar | `video-ai-master` |
 | Remotion, create-video, React MP4, programmatic video, نصوص على فيديو, install remotion | `video-ai-master` → **`remotion-programmatic-video/GUIDE.md`** (run `npx create-video@latest`) |
 | integration, GitHub, GitLab, webhook, OAuth, Slack, Jira, Notion, API, ربط, تكامل | `integrations-master` |
