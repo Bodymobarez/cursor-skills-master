@@ -282,7 +282,7 @@ Never jump straight to pixels. For **each** screen:
 - 12px padding on cards
 - Five equal-weight buttons in a row
 - Glass on every nested div
-- Spinner full-page for局部 updates
+- Spinner full-page for partial updates
 - Tables without empty/loading/error states
 - Charts with 10 series and no legend
 - Hover-only critical actions
