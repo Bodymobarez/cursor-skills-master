@@ -32,6 +32,7 @@ description: >-
 | colloquial, بالبلدي, كلام عشوائي, ترجمة حرفية, نفّذ بالحذافير | `ai-mcp-master` → **`colloquial-arabic-intent-execution/GUIDE.md`** |
 | Docker, K8s, Terraform, deploy, CI/CD, Cloudflare | `devops-master` |
 | git, commit, PR, branch, gh | `git-workflow-master` |
+| QA audit, test everything, dead buttons, broken routes, crawl app, Playwright audit, اختبار شامل, تدقيق جودة, QA_AUDIT_REPORT | `testing-master` → **`autonomous-qa-audit-complete`** |
 | test, Playwright, E2E, unit test | `testing-master` |
 | review, security, audit, bug, performance | `code-quality-master` |
 | debug, error, crash, slow | `debugging-master` |

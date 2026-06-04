@@ -1,6 +1,6 @@
 ---
 name: testing-master
-description: Master hub for Testing & test automation. Use to set up or write tests: unit, integration, E2E, TDD, and smoke testing. Bundles 9 specialized skills (in skills/<name>/GUIDE.md). Use this for any testing task.
+description: Master hub for Testing & test automation. Use to set up or write tests: unit, integration, E2E, TDD, smoke testing, and autonomous full-app QA audits (Playwright crawl, fix-retest loop, QA_AUDIT_REPORT.md). Bundles 10 specialized skills (in skills/<name>/GUIDE.md). Use this for any testing task.
 ---
 
 # Testing & test automation — Master Hub
@@ -9,7 +9,7 @@ Use to set up or write tests: unit, integration, E2E, TDD, and smoke testing.
 
 ## How to use this hub
 
-This single skill bundles **all 9 testing skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
+This single skill bundles **all 10 testing skills**. Each bundled skill's full instructions live in `skills/<name>/GUIDE.md` (plus any `scripts/`, `data/`, `references/` next to it).
 
 **Workflow:**
 1. Match the user's request to one or more skills in the list below.
@@ -18,6 +18,8 @@ This single skill bundles **all 9 testing skills**. Each bundled skill's full in
 
 ## Bundled skills
 
+- **autonomous-qa-audit-complete** ⭐ — Full autonomous E2E QA audit: scan codebase, discover routes/APIs/flows, Playwright crawl (every page, button, form, modal, CRUD, auth), console/network monitoring, screenshots, **fix → retest loop until green**. Deliver `QA_AUDIT_REPORT.md`, `FIXES_APPLIED.md`, `TEST_COVERAGE.md` + ready scripts.  
+  → `skills/autonomous-qa-audit-complete/GUIDE.md`
 - **adding-e2e-tests** — Set up Playwright end-to-end testing in a project, including test configuration, example tests, and CI integration.  
   → `skills/adding-e2e-tests/GUIDE.md`
 - **anthropic-webapp-testing** — Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browse...  

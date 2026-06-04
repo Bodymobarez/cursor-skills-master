@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **438 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
+A curated, **organized** collection of **439 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
 
-Instead of flooding your skills list with 438 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
+Instead of flooding your skills list with 439 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 438 entries, you get **35 hubs** (`yas
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 438 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 439 skills that's noisy. This repo merges them so:
 
 - ✅ **Yasser** (`/yasser`) routes to all domains — or pick one of **33 masters** alone.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -56,7 +56,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 | Hub | Skills | What it covers |
 |-----|:--:|----------------|
-| **`yasser`** | routes all | **Super-hub:** all masters + 438 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
+| **`yasser`** | routes all | **Super-hub:** all masters + 439 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
 
 ## The 34 domain masters
 
@@ -68,7 +68,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `tailwind-master` | 13 | **Full Tailwind v4.3+ stack**: `@theme` tokens, CVA, shadcn/ui, Radix, RTL/Arabic, dark mode, **UAE AEGov DLS**, Next.js RSC, plugins, CSS/CSS Modules migration |
 | `ui-master` | 28 | UI, frontend, **Tailwind v4**, **elite UI/UX redesigns** (Stripe/Linear tier), **advanced forms**, **brand identity**, **charts & dashboards**, **Figma-grade design systems**, **ultra-HD/8K rendering**, **award-winning effects**, CSS→Tailwind, responsive/a11y |
 | `planning-master` | 11 | PRDs, issues, architecture (ADRs), prototyping, plan grilling |
-| `testing-master` | 9 | Unit, integration, E2E (Playwright), TDD, smoke testing |
+| `testing-master` | 10 | Unit, integration, E2E (Playwright), **autonomous full-app QA audit** (crawl, fix-retest, reports), TDD, smoke testing |
 | `code-quality-master` | 16 | Code review, security audits, find-bugs, perf, simplification |
 | `git-workflow-master` | 14 | Commits, branches, PRs, CI triage, `gh` CLI |
 | `devops-master` | 20 | Docker, Kubernetes, Terraform, CI/CD, Cloudflare, Vercel deploy |
@@ -97,7 +97,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 | `prompt-master` | 11 | **Elite prompt engineering** + 10 expert personas: PhD researcher, competitive intelligence, content strategist, business consultant, document analyst, LinkedIn growth, personal branding, marketing director, viral content, strategic advisor |
 
-**Total: 438 bundled skills across 34 domain masters + Yasser super-hub.**
+**Total: 439 bundled skills across 34 domain masters + Yasser super-hub.**
 
 ---
 
