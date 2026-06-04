@@ -35,7 +35,8 @@ This single skill bundles **all 19 backend api skills**. Each bundled skill's fu
 - **cursor-skills-python** — Python development rules for Cursor — Django, Flask, FastAPI, data science, virtual environments, and testing. Use when working with Python projects.  
   → `skills/cursor-skills-python/GUIDE.md`
 - **database-design** — Design database schemas — tables, relationships, indexes, constraints, and ORM setup. Covers relational design, normalization, and common patterns.  
-  → `skills/database-design/GUIDE.md`
+  → `skills/database-design/GUIDE.md`  
+  *(Full admin UI / Database Studio product → `systems-platforms-master` → `database-studio-complete`)*
 - **stripe-stripe-best-practices** — >-  
   → `skills/stripe-stripe-best-practices/GUIDE.md`
 - **stripe-stripe-projects** — >-  

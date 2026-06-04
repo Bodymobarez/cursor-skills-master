@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **437 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
+A curated, **organized** collection of **438 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
 
-Instead of flooding your skills list with 437 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
+Instead of flooding your skills list with 438 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 437 entries, you get **35 hubs** (`yas
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 437 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 438 skills that's noisy. This repo merges them so:
 
 - ✅ **Yasser** (`/yasser`) routes to all domains — or pick one of **33 masters** alone.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -56,7 +56,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 | Hub | Skills | What it covers |
 |-----|:--:|----------------|
-| **`yasser`** | routes all | **Super-hub:** all masters + 437 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
+| **`yasser`** | routes all | **Super-hub:** all masters + 438 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
 
 ## The 34 domain masters
 
@@ -85,7 +85,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `marketplace-master` | 10 | **Multi-vendor (Amazon/Talabat-style): catalog, sellers, order-split, split payments/payouts, delivery dispatch, search/recs, reviews/trust, promotions, data platform** |
 | `payments-master` | 8 | **Payment pages + every gateway/wallet worldwide & Africa: Stripe/Adyen/PayPal, Paystack/Flutterwave/Fawry/Paymob/M-Pesa, mobile money, orchestration, webhooks/idempotency, reconciliation/ledger, PCI/fraud** |
 | `communications-master` | 7 | **Real-time chat, WhatsApp Business, helpdesk/SLA/CSAT, omnichannel + AI chatbot, advanced email (DKIM/DMARC), voice/SMS telephony, push notifications** |
-| `systems-platforms-master` | 7 | **Backend platforms A→Z: MongoDB/Atlas, Supabase (Auth/RLS/Edge), Neon serverless Postgres, Cloudflare (Workers/R2/D1/KV/DO), Postman/Newman, complete email servers (SPF/DKIM/DMARC)** |
+| `systems-platforms-master` | 8 | **Backend platforms A→Z: professional Database Studio (multi-page admin console), MongoDB/Atlas, Supabase (Auth/RLS/Edge), Neon, Cloudflare, Postman/Newman, email servers** |
 | `cross-platform-apps-master` | 6 | **Desktop (Electron/Tauri) + high-end mobile (iOS/Android) + one codebase web+desktop+mobile (Expo/RN Web/Tauri), store deploy, native bridges** |
 | `ride-hailing-maps-master` | 8 | **Uber/Careem-style apps + maps mastery: matching/dispatch, live tracking, Mapbox/MapLibre/Google maps design, routing/ETA, geocoding, surge, super-app** |
 | `gps-tracking-master` | 7 | **GPS/GNSS all kinds: fundamentals/NMEA, web+mobile geolocation, device protocols (Teltonika/GT06), RTK cm-precision, geofencing, fleet tracking, PostGIS** |
@@ -97,7 +97,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 | `prompt-master` | 11 | **Elite prompt engineering** + 10 expert personas: PhD researcher, competitive intelligence, content strategist, business consultant, document analyst, LinkedIn growth, personal branding, marketing director, viral content, strategic advisor |
 
-**Total: 437 bundled skills across 34 domain masters + Yasser super-hub.**
+**Total: 438 bundled skills across 34 domain masters + Yasser super-hub.**
 
 ---
 

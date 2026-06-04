@@ -6,7 +6,7 @@ description: >-
   indexing, admin), Supabase (Postgres/Auth/RLS/Storage/Edge/Realtime), Neon serverless Postgres,
   Cloudflare (Workers/Pages/R2/D1/KV/DO/DNS/WAF), Postman/Newman API tooling, and complete email
   servers (self-hosted Postfix/Dovecot or managed SES/Postmark/Resend + SPF/DKIM/DMARC + deliverability).
-  Bundles 7 specialized skills (in skills/<name>/GUIDE.md). Use for any platform/DB/infra/email setup.
+  Bundles 8 specialized skills (in skills/<name>/GUIDE.md). Use for any platform/DB/infra/email setup.
 ---
 
 # Systems & Platforms — Master Hub (real software-engineering depth)
@@ -25,6 +25,8 @@ not just "npm install and hope".
 
 - **systems-platforms-foundation** ⭐ — Choose the right DB/platform, environment & secrets management, connection pooling, migration discipline, backup/restore, observability, IaC mindset.  
   → `skills/systems-platforms-foundation/GUIDE.md`
+- **database-studio-complete** ⭐ — Build a professional multi-page Database Studio: connections, schema browser, table editor, SQL IDE (Monaco), ER diagrams, migrations, backups, monitoring, RBAC, audit logs, AI SQL copilot. Postgres/MySQL/Mongo/SQLite adapters. Supabase Studio / DataGrip tier.  
+  → `skills/database-studio-complete/GUIDE.md`
 - **mongodb-complete** ⭐ — MongoDB Atlas + self-host: document data modeling (embed vs reference), schema design patterns, the aggregation framework, indexing strategy, transactions, change streams, RBAC/security, Compass, backups & sharding.  
   → `skills/mongodb-complete/GUIDE.md`
 - **supabase-complete** ⭐ — Full Supabase: Postgres, Auth, **Row Level Security**, Storage, Edge Functions, Realtime, CLI + migrations, local dev, and going to production safely.  

@@ -21,6 +21,7 @@ description: >-
 | marketplace, multi-vendor, seller, Talabat, Amazon, متجر | `marketplace-master` |
 | travel, hotel, GDS, OTA, booking, سياحة, فنادق | `travel-tech-master` |
 | CRM, ERP, accounting, محاسبة, affiliate, white-label, multi-tenant, VAT, e-invoice, ZATCA | `business-master` |
+| Database Studio, SQL IDE, schema browser, table editor, ER diagram, migrations UI, داتابيز ستوديو, لوحة قواعد بيانات, pgAdmin بديل | `systems-platforms-master` → **`database-studio-complete`** |
 | MongoDB, Supabase, Neon, Cloudflare, Postman, email server, سيرفر ايميل, database setup | `systems-platforms-master` |
 | desktop app, Electron, Tauri, mobile app, iOS, Android, one codebase, ديسكتوب, موبايل | `cross-platform-apps-master` |
 | Uber, Careem, ride-hailing, taxi, dispatch, live tracking, maps, خرائط, mapbox, routing | `ride-hailing-maps-master` |
