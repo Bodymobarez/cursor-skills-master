@@ -2,11 +2,9 @@
 name: integrations-master
 description: >-
   Master hub for integrating with the world's SaaS, dev tools, clouds, and APIs — at staff/principal
-  depth. Use for GitHub/GitLab/Bitbucket, OAuth 2.1 + PKCE connectors, webhooks (per-provider HMAC/
-  Ed25519 verification), CI/CD (Actions + OIDC), AWS/GCP/Azure, Google/Microsoft Graph, Slack/Discord/
-  Teams, Jira/Linear/Notion, Salesforce/HubSpot, Shopify/WooCommerce, marketing/analytics, Zapier/n8n,
-  data sync/CDC, rate-limit/resilience, and any third-party REST/GraphQL API. Stripe → payments-master.
-  Bundles 16 skills. Start with integrations-architecture-foundation.
+  depth. Includes Cloudixia full integrations ecosystem (17 modules, marketplace, certified apps).
+  GitHub/GitLab, OAuth 2.1 + PKCE, webhooks, CI/CD, AWS/GCP/Azure, Slack, CRM, Zapier/n8n, CDC.
+  Stripe → payments-master. Bundles 17 skills. Start with integrations-architecture-foundation.
 ---
 
 # Integrations — Master Hub (World APIs & SaaS)
@@ -43,7 +41,10 @@ Brief (what system? read vs write? per-user or org-wide? push or pull?)
   → implement adapter + tests (fixtures/signatures) + observability
 ```
 
-## Bundled skills (16)
+## Bundled skills (17)
+
+**Platform ecosystems**
+- **cloudixia-integrations-ecosystem** ⭐ — Cloudixia: 17 modules, Integration Marketplace (Cloudflare/Supabase/Vercel/Stripe tier), 100+ providers, **Certified Apps**, unified schema, APIs, UI, billing, RBAC, full catalog YAML. → `skills/cloudixia-integrations-ecosystem/GUIDE.md`
 
 **Core patterns**
 - **integrations-architecture-foundation** ⭐ — Hexagonal adapter, inbound/outbound webhooks, sync shapes, idempotency, DLQ, rate limits, KMS secrets, observability. → `skills/integrations-architecture-foundation/GUIDE.md`

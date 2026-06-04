@@ -1,0 +1,181 @@
+# Cloudixia Integration Catalog — machine-readable registry
+# Priority: P0 (launch) | P1 (quarter) | P2 (roadmap) | P3 (partner-led)
+# Type: native | marketplace | certified_partner
+
+version: "2026.06"
+platform: cloudixia
+
+modules:
+  - id: databases
+  - id: object_storage
+  - id: deploy
+  - id: domains
+  - id: api_studio
+  - id: email_api
+  - id: email_marketing
+  - id: inbox
+  - id: voip
+  - id: auth_sso
+  - id: billing
+  - id: monitoring
+  - id: ai_studio
+  - id: secrets
+  - id: kubernetes
+  - id: cdn
+  - id: search
+
+integrations:
+  # ─── DATABASES ───
+  - { module: databases, category: Database Providers, provider: PostgreSQL, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: databases, category: Database Providers, provider: MySQL, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: databases, category: Database Providers, provider: MariaDB, type: native, priority: P1, oauth: false, webhooks: false, certified: official }
+  - { module: databases, category: Database Providers, provider: MongoDB, type: native, priority: P0, oauth: false, webhooks: true, certified: official }
+  - { module: databases, category: Database Providers, provider: Redis, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: databases, category: Database Providers, provider: ClickHouse, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+  - { module: databases, category: Database Providers, provider: Elasticsearch, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: partner }
+  - { module: databases, category: ORM, provider: Prisma, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: databases, category: ORM, provider: Drizzle, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: databases, category: ORM, provider: TypeORM, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: community }
+  - { module: databases, category: ORM, provider: Sequelize, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: community }
+  - { module: databases, category: ORM, provider: Hibernate, type: marketplace, priority: P3, oauth: false, webhooks: false, certified: community }
+  - { module: databases, category: AI, provider: OpenAI, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: databases, category: AI, provider: Anthropic, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: databases, category: AI, provider: Gemini, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: databases, category: BI, provider: Metabase, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: databases, category: BI, provider: Apache Superset, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: partner }
+  - { module: databases, category: BI, provider: Grafana, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+
+  # ─── OBJECT STORAGE ───
+  - { module: object_storage, category: S3 Compatible, provider: AWS S3, type: marketplace, priority: P0, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: object_storage, category: S3 Compatible, provider: Cloudflare R2, type: native, priority: P0, oauth: false, webhooks: true, certified: official }
+  - { module: object_storage, category: S3 Compatible, provider: MinIO, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+  - { module: object_storage, category: S3 Compatible, provider: Backblaze B2, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: object_storage, category: S3 Compatible, provider: Wasabi, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: partner }
+  - { module: object_storage, category: Media, provider: Cloudinary, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: object_storage, category: Media, provider: Imgix, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: partner }
+
+  # ─── DEPLOY ───
+  - { module: deploy, category: Git, provider: GitHub, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: deploy, category: Git, provider: GitLab, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: deploy, category: Git, provider: Bitbucket, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: deploy, category: Git, provider: Azure DevOps, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: partner }
+  - { module: deploy, category: Containers, provider: Docker Hub, type: marketplace, priority: P1, oauth: true, webhooks: false, certified: partner }
+  - { module: deploy, category: Containers, provider: Harbor, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: deploy, category: Containers, provider: GHCR, type: marketplace, priority: P1, oauth: true, webhooks: false, certified: partner }
+  - { module: deploy, category: CI/CD, provider: GitHub Actions, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: deploy, category: CI/CD, provider: GitLab CI, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: deploy, category: CI/CD, provider: Jenkins, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: deploy, category: IaC, provider: Terraform, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: deploy, category: IaC, provider: Pulumi, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: partner }
+
+  # ─── DOMAINS ───
+  - { module: domains, category: Registrars, provider: Namecheap, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: partner }
+  - { module: domains, category: Registrars, provider: GoDaddy, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: domains, category: Registrars, provider: Porkbun, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: partner }
+  - { module: domains, category: Registrars, provider: Name.com, type: marketplace, priority: P3, oauth: true, webhooks: false, certified: community }
+  - { module: domains, category: DNS, provider: Cloudflare DNS, type: native, priority: P0, oauth: true, webhooks: true, certified: official }
+  - { module: domains, category: DNS, provider: Route53, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: domains, category: DNS, provider: Google DNS, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: partner }
+  - { module: domains, category: SSL, provider: Let's Encrypt, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: domains, category: SSL, provider: ZeroSSL, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+
+  # ─── API STUDIO ───
+  - { module: api_studio, category: API Gateways, provider: Kong, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: api_studio, category: API Gateways, provider: Tyk, type: marketplace, priority: P3, oauth: true, webhooks: true, certified: partner }
+  - { module: api_studio, category: API Gateways, provider: KrakenD, type: marketplace, priority: P3, oauth: false, webhooks: false, certified: community }
+  - { module: api_studio, category: API Testing, provider: Postman, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: api_studio, category: API Testing, provider: Insomnia, type: marketplace, priority: P2, oauth: true, webhooks: false, certified: community }
+  - { module: api_studio, category: API Testing, provider: Bruno, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: community }
+  - { module: api_studio, category: Documentation, provider: Swagger, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: api_studio, category: Documentation, provider: OpenAPI, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: api_studio, category: Documentation, provider: Redoc, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+
+  # ─── EMAIL API ───
+  - { module: email_api, category: Providers, provider: Resend, type: marketplace, priority: P0, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: email_api, category: Providers, provider: SendGrid, type: marketplace, priority: P0, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: email_api, category: Providers, provider: Mailgun, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: email_api, category: Providers, provider: Amazon SES, type: marketplace, priority: P0, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: email_api, category: Providers, provider: Postmark, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: email_api, category: Authentication, provider: SPF, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: email_api, category: Authentication, provider: DKIM, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+  - { module: email_api, category: Authentication, provider: DMARC, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+
+  # ─── EMAIL MARKETING ───
+  - { module: email_marketing, category: CRM, provider: HubSpot, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: email_marketing, category: CRM, provider: Salesforce, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: email_marketing, category: CRM, provider: Zoho CRM, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: email_marketing, category: CRM, provider: Pipedrive, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: email_marketing, category: Automation, provider: Mailchimp, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: email_marketing, category: Automation, provider: Brevo, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: email_marketing, category: Automation, provider: ActiveCampaign, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+
+  # ─── INBOX ───
+  - { module: inbox, category: Chat, provider: WhatsApp Business, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: inbox, category: Chat, provider: Telegram, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: partner }
+  - { module: inbox, category: Chat, provider: Facebook Messenger, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: inbox, category: Chat, provider: Instagram, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: inbox, category: Live Chat, provider: Cloudixia Live Chat, type: native, priority: P0, oauth: false, webhooks: true, certified: official }
+  - { module: inbox, category: Help Desk, provider: Zendesk, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: inbox, category: Help Desk, provider: Freshdesk, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: partner }
+  - { module: inbox, category: Help Desk, provider: Intercom, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+
+  # ─── VOIP ───
+  - { module: voip, category: Telephony, provider: Twilio, type: marketplace, priority: P0, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: voip, category: Telephony, provider: Vonage, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: voip, category: Telephony, provider: Plivo, type: marketplace, priority: P2, oauth: false, webhooks: true, certified: partner }
+  - { module: voip, category: Telephony, provider: Telnyx, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: partner }
+  - { module: voip, category: SIP, provider: Asterisk, type: marketplace, priority: P2, oauth: false, webhooks: false, certified: partner }
+  - { module: voip, category: SIP, provider: FreePBX, type: marketplace, priority: P3, oauth: true, webhooks: true, certified: community }
+  - { module: voip, category: SIP, provider: Kamailio, type: marketplace, priority: P3, oauth: false, webhooks: false, certified: community }
+  - { module: voip, category: Meetings, provider: Zoom, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: voip, category: Meetings, provider: Google Meet, type: marketplace, priority: P1, oauth: true, webhooks: false, certified: certified_partner }
+  - { module: voip, category: Meetings, provider: Microsoft Teams, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+
+  # ─── AUTH & SSO (new module) ───
+  - { module: auth_sso, category: Social, provider: Google, type: native, priority: P0, oauth: true, webhooks: false, certified: official }
+  - { module: auth_sso, category: Social, provider: Microsoft, type: native, priority: P0, oauth: true, webhooks: false, certified: official }
+  - { module: auth_sso, category: Social, provider: GitHub, type: native, priority: P0, oauth: true, webhooks: false, certified: official }
+  - { module: auth_sso, category: Social, provider: Apple, type: native, priority: P1, oauth: true, webhooks: false, certified: official }
+  - { module: auth_sso, category: Enterprise, provider: LDAP, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+  - { module: auth_sso, category: Enterprise, provider: SAML, type: native, priority: P0, oauth: false, webhooks: false, certified: official }
+
+  # ─── BILLING (new module) ───
+  - { module: billing, category: Payments, provider: Stripe, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: billing, category: Payments, provider: Paddle, type: marketplace, priority: P1, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: billing, category: Payments, provider: Lemon Squeezy, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+
+  # ─── MONITORING (new module) ───
+  - { module: monitoring, category: Observability, provider: Grafana, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+  - { module: monitoring, category: Observability, provider: Datadog, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: monitoring, category: Observability, provider: New Relic, type: marketplace, priority: P2, oauth: true, webhooks: true, certified: partner }
+  - { module: monitoring, category: Errors, provider: Sentry, type: marketplace, priority: P0, oauth: true, webhooks: true, certified: certified_partner }
+
+  # ─── AI STUDIO (new module) ───
+  - { module: ai_studio, category: LLM, provider: OpenAI, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: ai_studio, category: LLM, provider: Anthropic, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: ai_studio, category: LLM, provider: Gemini, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+  - { module: ai_studio, category: LLM, provider: DeepSeek, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+
+  # ─── SECRETS (new module) ───
+  - { module: secrets, category: Vault, provider: HashiCorp Vault, type: marketplace, priority: P1, oauth: true, webhooks: false, certified: certified_partner }
+  - { module: secrets, category: Cloud, provider: AWS Secrets Manager, type: marketplace, priority: P0, oauth: false, webhooks: false, certified: certified_partner }
+
+  # ─── KUBERNETES (new module) ───
+  - { module: kubernetes, category: Managed K8s, provider: EKS, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+  - { module: kubernetes, category: Managed K8s, provider: AKS, type: marketplace, priority: P2, oauth: false, webhooks: true, certified: partner }
+  - { module: kubernetes, category: Managed K8s, provider: GKE, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: certified_partner }
+
+  # ─── CDN (new module) ───
+  - { module: cdn, category: CDN, provider: Cloudflare, type: native, priority: P0, oauth: true, webhooks: true, certified: official }
+  - { module: cdn, category: CDN, provider: BunnyCDN, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: partner }
+
+  # ─── SEARCH (new module) ───
+  - { module: search, category: Search Engine, provider: Meilisearch, type: native, priority: P0, oauth: false, webhooks: true, certified: official }
+  - { module: search, category: Search Engine, provider: Elasticsearch, type: marketplace, priority: P1, oauth: false, webhooks: false, certified: partner }
+  - { module: search, category: Search Engine, provider: Typesense, type: marketplace, priority: P1, oauth: false, webhooks: true, certified: partner }
+
+certification_tiers:
+  official: { label: "Cloudixia Official", review: internal, badge: true, sla: "99.9%" }
+  certified_partner: { label: "Cloudixia Certified", review: security+oauth, badge: true, sla: "99.5%" }
+  partner: { label: "Verified Partner", review: automated, badge: true, sla: best_effort }
+  community: { label: "Community", review: self_attest, badge: false, sla: none }

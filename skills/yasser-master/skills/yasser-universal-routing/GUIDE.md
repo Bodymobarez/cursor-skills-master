@@ -14,6 +14,7 @@ description: >-
 | UI, frontend, redesign, premium UI, Stripe, Linear, Notion, glassmorphism, dashboard, Framer Motion, elite design, عربي, تصميم | `ui-master` → **`elite-ui-ux-design-system`** + `tailwind-master` |
 | فيديو, video, Veo, Kling, reel, TikTok, avatar | `video-ai-master` |
 | Remotion, create-video, React MP4, programmatic video, نصوص على فيديو, install remotion | `video-ai-master` → **`remotion-programmatic-video/GUIDE.md`** (run `npx create-video@latest`) |
+| Cloudixia, cloud platform integrations, marketplace, certified apps, Databases Deploy Email VoIP, كلوديكسيا | `integrations-master` → **`cloudixia-integrations-ecosystem`** |
 | integration, GitHub, GitLab, webhook, OAuth, Slack, Jira, Notion, API, ربط, تكامل | `integrations-master` |
 | API, backend, database, auth, MFA, GraphQL, REST, سيرفر | `backend-api-master` |
 | payment, Stripe, Paymob, Fawry, wallet, checkout, دفع | `payments-master` |

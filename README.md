@@ -1,8 +1,8 @@
 # Cursor Skills Master
 
-A curated, **organized** collection of **439 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
+A curated, **organized** collection of **440 advanced agent skills** for [Cursor](https://cursor.com), bundled into **34 domain masters** — plus **`yasser`** the universal super-hub.
 
-Instead of flooding your skills list with 439 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
+Instead of flooding your skills list with 440 entries, you get **35 hubs** (`yasser` + 34 domains). Use **`/yasser`** when you want everything; use a single `*-master` when you want focus.
 
 > Sourced from the best public skill repos — Anthropic, Vercel, Sentry, PostHog, Cloudflare, Stripe, Matt Pocock, and curated community collections — then categorized and deduplicated.
 
@@ -10,7 +10,7 @@ Instead of flooding your skills list with 439 entries, you get **35 hubs** (`yas
 
 ## Why masters?
 
-Cursor shows **every** `SKILL.md` in a flat list. With 439 skills that's noisy. This repo merges them so:
+Cursor shows **every** `SKILL.md` in a flat list. With 440 skills that's noisy. This repo merges them so:
 
 - ✅ **Yasser** (`/yasser`) routes to all domains — or pick one of **33 masters** alone.
 - ✅ Each master bundles its domain's skills as `skills/<name>/GUIDE.md` (read on demand).
@@ -56,13 +56,13 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 
 | Hub | Skills | What it covers |
 |-----|:--:|----------------|
-| **`yasser`** | routes all | **Super-hub:** all masters + 439 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
+| **`yasser`** | routes all | **Super-hub:** all masters + 440 GUIDEs incl. **Remotion install** via `video-ai-master`. **`/yasser`** or `use yasser`. |
 
 ## The 34 domain masters
 
 | Master | Skills | What it covers |
 |--------|:--:|----------------|
-| `integrations-master` | 16 | **World integrations**: GitHub/GitLab, OAuth, webhooks, CI/CD, AWS/GCP/Azure, Google/Microsoft 365, Slack/Teams, Jira/Linear/Notion, CRM, Shopify, analytics, Zapier/n8n, **80+ platform index** |
+| `integrations-master` | 17 | **World integrations** + **Cloudixia ecosystem** (17 modules, marketplace, certified apps), GitHub/GitLab, OAuth, webhooks, CI/CD, clouds, CRM, **90+ platform index** |
 | `video-ai-master` | 12 | **AI video**: Veo/Kling/Runway, storyboard, fal.ai — **Remotion full install** (`npx create-video@latest`), render, avatars, ffmpeg, social export |
 | `color-design-master` | 9 | **AI color harmony (Artist-Engineer)**: color theory, LLM palette prompts, OKLCH ramps, WCAG contrast, semantic UI roles, dark/light harmony, token export |
 | `tailwind-master` | 13 | **Full Tailwind v4.3+ stack**: `@theme` tokens, CVA, shadcn/ui, Radix, RTL/Arabic, dark mode, **UAE AEGov DLS**, Next.js RSC, plugins, CSS/CSS Modules migration |
@@ -97,7 +97,7 @@ After installing, **restart Cursor** (or open a new chat) and check **Settings �
 | `productivity-master` | 14 | Context saving, onboarding, parallel exploration, project switching |
 | `prompt-master` | 11 | **Elite prompt engineering** + 10 expert personas: PhD researcher, competitive intelligence, content strategist, business consultant, document analyst, LinkedIn growth, personal branding, marketing director, viral content, strategic advisor |
 
-**Total: 439 bundled skills across 34 domain masters + Yasser super-hub.**
+**Total: 440 bundled skills across 34 domain masters + Yasser super-hub.**
 
 ---
 
